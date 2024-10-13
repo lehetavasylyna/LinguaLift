@@ -48,6 +48,16 @@ const config = {
         'import/namespace': [2, { allowComputed: true }],
         'import/first': 'error',
         'import/newline-after-import': 'error',
+        'no-unused-vars': [
+            'error',
+            {
+                vars: 'all',
+                args: 'after-used',
+                caughtErrors: 'all',
+                ignoreRestSiblings: false,
+                reportUsedIgnorePattern: false,
+            },
+        ],
     },
     overrides: [
         {
