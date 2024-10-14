@@ -4,6 +4,11 @@ const lessonsController = require('./../controllers/lessonController');
 
 const router = express.Router();
 
-router.route('/').get(authController.protect, lessonsController.getAllLessons);
+router
+  .route('/')
+  .get(authController.protect, lessonsController.getAllLessons)
+  .post(lessonsController.createLesson);
+
+router.route('/:id').get(lessonsController.getLesson);
 
 module.exports = router;
