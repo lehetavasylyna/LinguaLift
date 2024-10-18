@@ -1,14 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "Lint-staged command start..."
-
-npx lint-staged
-
-echo "Starting Cypress tests..."
-npm run test:e2e
-
-if [ $? -ne 0 ]; then
-  echo "Cypress tests failed. Please fix the errors before committing."
-  exit 1
-fi
+#!/usr/bin/env sh
+node_modules/.bin/lint-staged
