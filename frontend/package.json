@@ -49,6 +49,7 @@
         "start:dev": "webpack serve -c config/webpack.development.config.js",
         "test:open": "cypress open",
         "test:ct": "cypress run --component --browser chrome",
+        "test:e2e": "webpack serve -c config/webpack.config.js cypress open",
         "prepare": "husky"
     },
     "author": "",
