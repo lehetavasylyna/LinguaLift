@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "$(dirname "$0")/_/husky.sh"
-echo "Git hook works"
+echo "Git hook works!"
