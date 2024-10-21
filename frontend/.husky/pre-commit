@@ -2,8 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "Running pre-commit hook"
-echo "Current directory: $(pwd)"
-echo "Git status:"
-git status
-
 echo "Git hook works"
