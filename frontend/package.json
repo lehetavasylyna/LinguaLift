@@ -58,6 +58,7 @@
         "test:ct": "cypress run --component --browser chrome",
         "test:e2e": "webpack serve -c config/webpack.config.js cypress open",
         "prepare": "husky install",
+        "precommit": "lint-staged",
         "lint": "npx eslint .",
         "coverage": "nyc npm run test"
     },
