@@ -10,7 +10,6 @@ const App = () => {
         <div data-testid="app">
             <Header />
             <div id="tabs">
-                <button>Test hooks</button>
                 <menu>
                     <button id="btn-why-react" className="active">
                         Чому саме React?
