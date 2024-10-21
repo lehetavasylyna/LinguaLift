@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-echo "Pre-coomit hook works!"
-# npm run test:open
-# chmod +x .husky/pre-commit
+#!/bin/bash
+node_modules/.bin/lint-staged
+echo "Pre-commit хук працює!"

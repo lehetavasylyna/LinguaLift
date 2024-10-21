@@ -1,6 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npm run lint
-chmod +x .husky/pre-push
-chmod +x .husky/*
