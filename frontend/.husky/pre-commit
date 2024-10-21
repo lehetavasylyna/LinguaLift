@@ -1,4 +1,5 @@
 #!/bin/sh
 # . "$(dirname "$0")/_/husky.sh"
+set -x
 
-echo "Git hook works"
+echo "Running pre-commit hook"
