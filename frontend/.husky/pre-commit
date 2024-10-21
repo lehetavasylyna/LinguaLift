@@ -3,4 +3,4 @@
 
 echo "Pre-coomit hook works!"
 # npm run test:open
-chmod +x .husky/pre-commit
+# chmod +x .husky/pre-commit
