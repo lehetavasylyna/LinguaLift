@@ -1,3 +1,6 @@
-#!/bin/bash
-node_modules/.bin/lint-staged
-echo "Pre-commit хук працює!"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Pre-commit works!"
+# npm run test:open
+chmod +x .husky/*

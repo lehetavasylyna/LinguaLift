@@ -96,7 +96,7 @@ context('Assertions', () => {
         .should(($div) => {
           expect($div).to.have.length(1)
 
-          const className = $div[0].className
+          const {className} = $div[0]
 
           expect(className).to.match(/heading-/)
         })
@@ -116,7 +116,7 @@ context('Assertions', () => {
             throw new Error('Did not find 1 element')
           }
 
-          const className = $div[0].className
+          const {className} = $div[0]
 
           if (!className.match(/heading-/)) {
             throw new Error(`Could not find class "heading-" in ${className}`)

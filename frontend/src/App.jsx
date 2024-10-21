@@ -1,14 +1,8 @@
 import React from 'react';
 
-// import resizeHook from '@hooks/resize';
-// import styles from './App.css';
-// import * as styles from './App.css';
-
-// import Header from './components/Header/index.jsx?';
-// import { Header } from '@components/Header';
 import { Header } from './components/Header';
 
-const App = () => {
+function App() {
     return (
         <div data-testid="app">
             <Header />
@@ -20,11 +14,11 @@ const App = () => {
                     <button id="btn-core-features">Основні переваги (Features)</button>
                     <button id="btn-resources">Корисні посилання</button>
                 </menu>
-                <div id="tab-content"></div>
+                <div id="tab-content" />
             </div>
         </div>
     );
-};
+}
 
 // export { App };
 export default App;
