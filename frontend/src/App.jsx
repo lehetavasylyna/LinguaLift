@@ -3,7 +3,10 @@ import React from 'react';
 // import resizeHook from '@hooks/resize';
 // import styles from './App.css';
 // import * as styles from './App.css';
-import Header from './components/Header/Header';
+
+// import Header from './components/Header/index.jsx?';
+// import { Header } from '@components/Header';
+import { Header } from './components/Header';
 
 const App = () => {
     return (
