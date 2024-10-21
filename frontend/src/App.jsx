@@ -10,9 +10,10 @@ const App = () => {
         <div data-testid="app">
             <Header />
             <div id="tabs">
+                <button>Test hooks</button>
                 <menu>
                     <button id="btn-why-react" className="active">
-                        Чому React?
+                        Чому саме React?
                     </button>
                     <button id="btn-core-features">Основні переваги (Features)</button>
                     <button id="btn-resources">Корисні посилання</button>
