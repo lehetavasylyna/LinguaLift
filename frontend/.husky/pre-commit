@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/husky.sh"
 
-echo "Pre-commit works!"
+echo "Lint-staged command start..."
+
+npx lint-staged
+
+echo "Starting Cypress tests..."
 # npm run test:open
-chmod +x .husky/pre-commit
+# chmod +x .husky/pre-commit
