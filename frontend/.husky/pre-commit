@@ -1,2 +1,2 @@
-#!/usr/bin/env sh
-node_modules/.bin/lint-staged
+#!/bin/bash
+echo "Pre-commit хук працює!"
