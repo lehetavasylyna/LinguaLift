@@ -22,7 +22,6 @@ export default [
             cypress: pluginCypress,
         },
         rules: {
-            // 'cypress/no-unnecessary-waiting': 'off',
             'cypress/unsafe-to-chain-command': 'error',
             'spaced-comment': 'off',
             'no-console': 'warn',
