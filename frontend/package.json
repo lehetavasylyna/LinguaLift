@@ -26,8 +26,6 @@
         "eslint-plugin-unicorn": "^55.0.0",
         "globals": "^15.11.0",
         "html-webpack-plugin": "^5.6.0",
-        "husky": "^4.3.8",
-        "husky-init": "^8.0.0",
         "lint-staged": "^15.2.10",
         "mini-css-extract-plugin": "^2.9.1",
         "prettier": "^3.3.3",
@@ -57,12 +55,14 @@
         "test:open": "cypress open",
         "test:ct": "cypress run --component --browser chrome",
         "test:e2e": "webpack serve -c config/webpack.config.js cypress open",
-        "prepare": "husky install",
-        "precommit": "lint-staged",
         "lint": "npx eslint .",
+        "prepare": "husky install",
         "coverage": "nyc npm run test"
     },
     "author": "",
     "license": "ISC",
-    "description": ""
+    "description": "",
+    "lint-staged": {
+        "*.js": "eslint --cache --fix"
+    }
 }
