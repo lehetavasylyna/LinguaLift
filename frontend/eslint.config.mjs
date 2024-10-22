@@ -37,7 +37,7 @@ export default [
             'eslint-disable-next-line': 'off',
             'prefer-destructuring': ['error', { object: true, array: false }],
             'prefer-object-spread': 'off',
-            'no-unused-vars': ['warn', { argsIgnorePattern: 'req|res|next|val' }],
+            'no-unused-vars': ['error', { argsIgnorePattern: 'req|res|next|val' }],
         },
     },
     pluginCypress.configs.recommended,
