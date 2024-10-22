@@ -29,7 +29,3 @@ We welcome contributions! If you're interested in helping improve our content or
 ## Contact Us
 
 For any questions or feedback, feel free to reach out via our contact page. We're here to help you on your language learning journey!
-
----
-
-Join us in making English learning accessible, enjoyable, and effective for everyone!
