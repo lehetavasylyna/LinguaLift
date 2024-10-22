@@ -98,8 +98,8 @@ context('Utilities', () => {
     cy.then(() => {
       // return a promise to cy.then() that
       // is awaited until it resolves
-      return waitOneSecond().then((str) => {
-        expect(str).to.eq('foo')
+      return waitOneSecond().then((string_) => {
+        expect(string_).to.eq('foo')
         expect(waited).to.be.true
       })
     })

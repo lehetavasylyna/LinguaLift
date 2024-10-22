@@ -70,7 +70,7 @@ context('Assertions', () => {
         .should(($p) => {
           // https://on.cypress.io/$
           // return an array of texts from all of the p's
-          const texts = $p.map((i, el) => Cypress.$(el).text())
+          const texts = $p.map((index, element) => Cypress.$(element).text())
 
           // jquery map returns jquery object
           // and .get() convert this to simple array
@@ -118,7 +118,7 @@ context('Assertions', () => {
 
           const {className} = $div[0]
 
-          if (!className.match(/heading-/)) {
+          if (!/heading-/.test(className)) {
             throw new Error(`Could not find class "heading-" in ${className}`)
           }
         })
@@ -136,7 +136,7 @@ context('Assertions', () => {
        * useful before comparing text with spaces and different capitalization.
        * @param {string} s Text to normalize
       */
-      const normalizeText = (s) => s.replace(/\s/g, '').toLowerCase()
+      const normalizeText = (s) => s.replaceAll(/\s/g, '').toLowerCase()
 
       cy.get('.two-elements')
         .find('.first')
@@ -167,7 +167,7 @@ context('Assertions', () => {
     it('retries the should callback until assertions pass', () => {
       cy.get('#random-number')
         .should(($div) => {
-          const n = parseFloat($div.text())
+          const n = Number.parseFloat($div.text())
 
           expect(n).to.be.gte(1).and.be.lte(10)
         })

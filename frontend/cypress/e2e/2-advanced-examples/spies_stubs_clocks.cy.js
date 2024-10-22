@@ -5,13 +5,13 @@ context('Spies, Stubs, and Clock', () => {
     // https://on.cypress.io/spy
     cy.visit('https://example.cypress.io/commands/spies-stubs-clocks')
 
-    const obj = {
+    const object = {
       foo () {},
     }
 
-    const spy = cy.spy(obj, 'foo').as('anyArgs')
+    const spy = cy.spy(object, 'foo').as('anyArgs')
 
-    obj.foo()
+    object.foo()
 
     expect(spy).to.be.called
   })
@@ -19,7 +19,7 @@ context('Spies, Stubs, and Clock', () => {
   it('cy.spy() retries until assertions pass', () => {
     cy.visit('https://example.cypress.io/commands/spies-stubs-clocks')
 
-    const obj = {
+    const object = {
       /**
        * Prints the argument passed
        * @param x {any}
@@ -29,14 +29,14 @@ context('Spies, Stubs, and Clock', () => {
       },
     }
 
-    cy.spy(obj, 'foo').as('foo')
+    cy.spy(object, 'foo').as('foo')
 
     setTimeout(() => {
-      obj.foo('first')
+      object.foo('first')
     }, 500)
 
     setTimeout(() => {
-      obj.foo('second')
+      object.foo('second')
     }, 2500)
 
     cy.get('@foo').should('have.been.calledTwice')
@@ -46,7 +46,7 @@ context('Spies, Stubs, and Clock', () => {
     // https://on.cypress.io/stub
     cy.visit('https://example.cypress.io/commands/spies-stubs-clocks')
 
-    const obj = {
+    const object = {
       /**
        * prints both arguments to the console
        * @param a {string}
@@ -57,9 +57,9 @@ context('Spies, Stubs, and Clock', () => {
       },
     }
 
-    const stub = cy.stub(obj, 'foo').as('foo')
+    const stub = cy.stub(object, 'foo').as('foo')
 
-    obj.foo('foo', 'bar')
+    object.foo('foo', 'bar')
 
     expect(stub).to.be.called
   })
@@ -91,7 +91,7 @@ context('Spies, Stubs, and Clock', () => {
     cy.get('#tick-div')
       .should('have.text', '1489449600')
 
-    cy.tick(10000) // 10 seconds passed
+    cy.tick(10_000) // 10 seconds passed
     cy.get('#tick-div').click()
     cy.get('#tick-div')
       .should('have.text', '1489449610')

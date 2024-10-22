@@ -8,8 +8,8 @@ context('Connectors', () => {
   it('.each() - iterate over an array of elements', () => {
     // https://on.cypress.io/each
     cy.get('.connectors-each-ul>li')
-      .each(($el, index, $list) => {
-        console.log($el, index, $list)
+      .each(($element, index, $list) => {
+        console.log($element, index, $list)
       })
   })
 
@@ -35,9 +35,9 @@ context('Connectors', () => {
 
   it('.spread() - spread an array as individual args to callback function', () => {
     // https://on.cypress.io/spread
-    const arr = ['foo', 'bar', 'baz']
+    const array = ['foo', 'bar', 'baz']
 
-    cy.wrap(arr).spread((foo, bar, baz) => {
+    cy.wrap(array).spread((foo, bar, baz) => {
       expect(foo).to.eq('foo')
       expect(bar).to.eq('bar')
       expect(baz).to.eq('baz')
@@ -58,40 +58,40 @@ context('Connectors', () => {
 
     it('yields the returned value to the next command', () => {
       cy.wrap(1)
-        .then((num) => {
-          expect(num).to.equal(1)
+        .then((number_) => {
+          expect(number_).to.equal(1)
 
           return 2
         })
-        .then((num) => {
-          expect(num).to.equal(2)
+        .then((number_) => {
+          expect(number_).to.equal(2)
         })
     })
 
     it('yields the original subject without return', () => {
       cy.wrap(1)
-        .then((num) => {
-          expect(num).to.equal(1)
+        .then((number_) => {
+          expect(number_).to.equal(1)
           // note that nothing is returned from this callback
         })
-        .then((num) => {
+        .then((number_) => {
           // this callback receives the original unchanged value 1
-          expect(num).to.equal(1)
+          expect(number_).to.equal(1)
         })
     })
 
     it('yields the value yielded by the last Cypress command inside', () => {
       cy.wrap(1)
-        .then((num) => {
-          expect(num).to.equal(1)
+        .then((number_) => {
+          expect(number_).to.equal(1)
           // note how we run a Cypress command
           // the result yielded by this Cypress command
           // will be passed to the second ".then"
           cy.wrap(2)
         })
-        .then((num) => {
+        .then((number_) => {
           // this callback receives the value yielded by "cy.wrap(2)"
-          expect(num).to.equal(2)
+          expect(number_).to.equal(2)
         })
     })
   })
