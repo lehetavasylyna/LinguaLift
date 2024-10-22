@@ -1,0 +1,126 @@
+{
+  "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\Header.jsx": {
+    "path": "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\Header.jsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 6,
+          "column": 22
+        },
+        "end": {
+          "line": 14,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 7,
+          "column": 4
+        },
+        "end": {
+          "line": 13,
+          "column": 13
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 6,
+            "column": 22
+          },
+          "end": {
+            "line": 6,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 4
+          },
+          "end": {
+            "line": 13,
+            "column": 13
+          }
+        },
+        "line": 7
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 2,
+      "1": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "2106f53045649ce8c226b2d81e14e626b23ca1c7"
+  },
+  "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\index.js": {
+    "path": "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\index.js",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "34d54c5af1eaa687cde5849e46dad4c447b5d3cd"
+  },
+  "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\App.jsx": {
+    "path": "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\App.jsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 6,
+          "column": 4
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "App",
+        "decl": {
+          "start": {
+            "line": 5,
+            "column": 9
+          },
+          "end": {
+            "line": 5,
+            "column": 12
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 15
+          },
+          "end": {
+            "line": 21,
+            "column": 1
+          }
+        },
+        "line": 5
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "51fdec9a12ff2e3c88b847175cbcca83767d0f51"
+  }
+}
