@@ -1,9 +1,0 @@
-node_modules/
-build/
-dist/
-*.min.js
-src/legacy/
-cypress/
-cypress/support/
-cypress.config.js
-.husky/install.mjs
