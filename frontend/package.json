@@ -60,8 +60,5 @@
     },
     "author": "",
     "license": "ISC",
-    "description": "",
-    "lint-staged": {
-        "*.js": "eslint --cache --fix"
-    }
+    "description": ""
 }
