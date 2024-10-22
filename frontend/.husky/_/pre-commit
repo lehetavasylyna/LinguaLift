@@ -1,5 +1,14 @@
-#!/usr/bin/env sh
-# . "$(dirname "$0")/h"
+#!/bin/sh
 . "$(dirname "$0")/husky.sh"
 
-echo "Pre-commit works!"
+echo "Lint-staged command start..."
+
+npx lint-staged
+
+echo "Starting Cypress tests..."
+npx cypress run
+
+if [ $? -ne 0 ]; then
+  echo "Cypress tests failed. Please fix the errors before committing."
+  exit 1
+fi
