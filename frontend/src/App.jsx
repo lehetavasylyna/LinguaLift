@@ -16,6 +16,9 @@ function App() {
                 </menu>
                 <div id="tab-content" />
             </div>
+            {/* <LessonCard />
+            <LessonCard />
+            <LessonCard /> */}
         </div>
     );
 }

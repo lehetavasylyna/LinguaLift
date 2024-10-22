@@ -1,9 +1,13 @@
 import React from 'react';
+
 // import './Home.css';
+import { Header } from '../../components/Header';
+import { LessonCard } from '../../components/LessonCard';
 
 function Home() {
     return (
         <div className="screen">
+            <Header />
             <div className="div">
                 <div className="overlap">
                     <div className="rectangle" />
@@ -61,6 +65,9 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <LessonCard />
+            <LessonCard />
+            <LessonCard />
         </div>
     );
 }
