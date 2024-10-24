@@ -1,7 +1,7 @@
 {
     "devDependencies": {
         "@babel/core": "^7.25.8",
-        "@babel/eslint-parser": "^7.25.8",
+        "@babel/eslint-parser": "^7.25.9",
         "@babel/preset-env": "^7.25.8",
         "@babel/preset-react": "^7.24.7",
         "@cypress/code-coverage": "^3.13.2",
@@ -21,7 +21,7 @@
         "eslint-plugin-jsx-a11y": "^6.10.1",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-react": "^7.37.1",
+        "eslint-plugin-react": "^7.37.2",
         "eslint-plugin-react-hooks": "^4.6.2",
         "eslint-plugin-simple-import-sort": "^12.1.1",
         "eslint-plugin-unicorn": "^55.0.0",

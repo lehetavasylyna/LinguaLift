@@ -6,6 +6,15 @@ const config = {
         node: true,
         es2021: true,
     },
+    parser: 'babel-eslint',
+    parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
+        },
+        requireConfigFile: false,
+    },
     extends: [
         'eslint:recommended',
         /* https://www.npmjs.com/package/eslint-plugin-react */
@@ -34,7 +43,8 @@ const config = {
             },
         },
     },
-    plugins: ['simple-import-sort', 'react'],
+
+    plugins: ['simple-import-sort', 'react', 'react-hooks'],
     ignorePatterns: ['node_modules'],
     rules: {
         'unicorn/filename-case': [
