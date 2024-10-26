@@ -8,22 +8,39 @@ import { LessonCard } from '../../components/LessonCard';
 
 function Home() {
     return (
-        <div className="home">
-            <div className="content-container">
+        <div className={styles.lessons}>
+            <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
+            <div className={styles.content}>
                 <div className={styles.mainContent}>
                     <Header />
-                    <input type="text" />
-                    <div className={styles.search}></div>
-                    <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
+
+                    <div className={styles.searchedDiv}>
+                        <input type="text" placeholder="Уведіть назву теми" />
+                        <div className={styles.search}>
+                            <img src="../../../assets/img/search.png" />
+                        </div>
+                    </div>
+
+                    <div className={styles.sortOptions}>
+                        <select>
+                            <option value="newest">Найновіші</option>
+                            <option value="oldest">Найстаріші</option>
+                            <option value="easiest">Найлегші</option>
+                            <option value="hardest">Найважчі</option>
+                        </select>
+                    </div>
                 </div>
 
-                <LessonCard />
-                <LessonCard />
-
-                <div className={styles.more}>
-                    <div className={styles.moreBtn}>Ще...</div>
+                <div className={styles.lessonsContainer}>
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
                 </div>
-                {/* <Footer /> */}
+
+                <Footer />
             </div>
         </div>
     );

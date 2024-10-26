@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './LessonCard.css';
 
-// import styles from './Lesson.css';
-
 export const LessonCard = () => (
     <div className={styles.main}>
         <div className={styles.backPoint} />
@@ -10,6 +8,7 @@ export const LessonCard = () => (
         <div className={styles.wrapper}>
             <span className={styles.title}>Артикль a/an, the</span>
             <div className={styles.img} />
+
             <div className={styles.section}>
                 <div className={styles.circle} />
                 <span className={styles.diff}>Elementary</span>

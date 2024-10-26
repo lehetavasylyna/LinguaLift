@@ -22,15 +22,17 @@ function Home() {
                     <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
                 </div>
 
-                <LessonCard />
-                <LessonCard />
-                {/* <LessonCard />
-                <LessonCard /> */}
+                <div className={styles.lessonsContainer}>
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                    <LessonCard className={styles.lessonsCard} />
+                </div>
 
                 <div className={styles.more}>
                     <div className={styles.moreBtn}>Ще...</div>
                 </div>
-                {/* <Footer /> */}
+                <Footer />
             </div>
         </div>
     );

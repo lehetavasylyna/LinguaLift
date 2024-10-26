@@ -1,9 +1,34 @@
+.home {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.blur {
+    filter: blur(8px);
+}
+
 .background {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    position: relative;
+}
+
+Header {
+    filter: blur(8px);
+}
+
+.registrationContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .letsStart {
@@ -14,13 +39,12 @@
     z-index: 1;
     width: 272px;
     height: 89px;
-    padding: 12px 24px 12px 24px;
+    padding: 12px 24px;
     background: #ff6868;
     border-radius: 8px;
 }
 
-.letsStartBtn,
-.moreBtn {
+.letsStartBtn {
     height: 24px;
     color: #ffffff;
     font-family: Montserrat;
@@ -40,35 +64,4 @@
     font-family: Montserrat;
     font-size: 64px;
     font-weight: 500;
-}
-
-.more {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    width: 229px;
-    height: 75px;
-    margin: 46px 0 0 627px;
-    padding: 12px 24px 12px 24px;
-    background: #ff6868;
-    z-index: 3;
-    border-radius: 8px;
-}
-
-.lessonsContainer {
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 72px;
-}
-
-.lessonsCard {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

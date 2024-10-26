@@ -4,12 +4,24 @@ import styles from './Footer.css';
 
 export const Footer = () => (
     <footer className={styles.container}>
-        <div className="footer">
-            {/* <img className="logo" src="../../../assets/img/logo.png" /> */}
-            <div className="menu-btn">Головна</div>
-            <div className="menu-btn">Новини</div>
-            <div className="menu-btn">Про нас</div>
-            <div className="menu-btn">Наша команда</div>
+        <div className={styles.group}>
+            <div className={styles.footerImgs}>
+                <div className={styles.networks}>
+                    <img src="../../../assets/img/instagram.png" />
+                </div>
+                <div className={styles.networks}>
+                    <img src="../../../assets/img/facebook.png" />
+                </div>
+                <div className={styles.networks}>
+                    <img src="../../../assets/img/twitter.png" />
+                </div>
+            </div>
+            <div className={styles.footerBtns}>
+                <div className={styles.footerBtn}>Головна</div>
+                <div className={styles.footerBtn}>Новини</div>
+                <div className={styles.footerBtn}>Про нас</div>
+                <div className={styles.footerBtn}>Наша команда</div>
+            </div>
         </div>
     </footer>
 );
