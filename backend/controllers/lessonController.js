@@ -1,9 +1,18 @@
 const Lesson = require('./../models/lessonModel');
+const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
 exports.getAllLessons = catchAsync(async (req, res, next) => {
-  const lessons = await Lesson.find();
+  const features = new APIFeatures(Lesson.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+
+  // console.log(req.query);
+
+  const lessons = await features.query;
 
   res.status(200).json({
     status: 'success',
@@ -37,5 +46,36 @@ exports.createLesson = catchAsync(async (req, res, next) => {
     data: {
       lesson: newLesson,
     },
+  });
+});
+
+exports.updateLesson = catchAsync(async (req, res, next) => {
+  const lesson = await Lesson.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!lesson) {
+    return next(new AppError('No tour found with that ID', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      lesson,
+    },
+  });
+});
+
+exports.deleteLesson = catchAsync(async (req, res, next) => {
+  const lesson = await Lesson.findByIdAndDelete(req.params.id);
+
+  if (!lesson) {
+    return next(new AppError('No lesson found with that ID', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data: null,
   });
 });

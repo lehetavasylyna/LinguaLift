@@ -9,6 +9,10 @@ router
   .get(authController.protect, lessonsController.getAllLessons)
   .post(lessonsController.createLesson);
 
-router.route('/:id').get(lessonsController.getLesson);
+router
+  .route('/:id')
+  .get(lessonsController.getLesson)
+  .patch(lessonsController.updateLesson)
+  .delete(authController.protect, lessonsController.deleteLesson);
 
 module.exports = router;
