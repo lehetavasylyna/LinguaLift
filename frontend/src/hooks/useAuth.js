@@ -1,4 +1,3 @@
-// useAuth.js
 import { useState } from 'react';
 
 function useAuth() {

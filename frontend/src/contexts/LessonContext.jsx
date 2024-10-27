@@ -1,4 +1,3 @@
-// src/pages/Lessons/Lessons.jsx
 import React from 'react';
 import { useLessons } from '../../contexts/LessonsContext';
 
