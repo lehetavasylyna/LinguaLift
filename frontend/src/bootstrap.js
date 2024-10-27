@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import App from './App';
 
 // import { App } from './App';
 // import App from './App';
@@ -13,9 +14,9 @@ import { createRoot } from 'react-dom/client';
 // import Login from './pages/LoginPage/Login.jsx';
 // import ResetPassword from './pages/ResetPasswordPage/ResetPassword.jsx';
 // import ForgotPassword from './pages/ForgotPasswordPage/ForgotPassword.jsx';
-import Tests from './pages/Lesson/Tests/Tests.jsx';
+// import Tests from './pages/Lesson/Tests/Tests.jsx';
 
 const domNode = document.querySelector('#react-app');
 const root = createRoot(domNode);
 
-root.render(<Tests />);
+root.render(<App />);

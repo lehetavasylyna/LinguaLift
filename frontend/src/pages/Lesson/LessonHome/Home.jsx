@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Home.css';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import SideMenu from '../../../components/SideMenu';
 import LessonDescription from '../../../components/LessonDescription';
 
 export const LessonHome = () => {
