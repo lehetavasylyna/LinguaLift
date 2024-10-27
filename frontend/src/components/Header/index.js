@@ -1,2 +1,2 @@
-export * from './Header'; //default excluded
+export * from './Header';
 export { default } from './Header';
