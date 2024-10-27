@@ -3,7 +3,6 @@ import styles from './Home.css';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import SideMenu from '../../../components/SideMenu';
-import LessonInstructions from '../../../components/LessonInstrustions';
 import LessonDescription from '../../../components/LessonDescription';
 
 export const LessonHome = () => {
@@ -20,11 +19,9 @@ export const LessonHome = () => {
                     <div className={styles.diff}>Elementary</div>
                 </div>
 
-                {/* <LessonDescription className={styles.lessonInfo} /> */}
+                <LessonDescription />
 
                 <button className={styles.startBtn}>Почати</button>
-
-                {/* <LessonInstructions className={styles.lessonInfo} /> */}
             </div>
             <Footer />
         </div>

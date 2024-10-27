@@ -6,7 +6,7 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { LessonCard } from '../../components/LessonCard';
 
-function Home() {
+function Lessons() {
     return (
         <div className={styles.lessons}>
             <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
@@ -46,4 +46,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Lessons;

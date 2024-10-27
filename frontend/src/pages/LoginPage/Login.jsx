@@ -1,10 +1,12 @@
-import styles from './ResetPassword.css';
+import styles from './Login.css';
 import React from 'react';
 
+import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import ResetPasswordComp from '../../components/Auth/ResetPassword';
+import { LessonCard } from '../../components/LessonCard';
+import LoginComp from '../../components/Auth/Login';
 
-function ResetPassword() {
+function Login() {
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
@@ -20,10 +22,10 @@ function ResetPassword() {
             </div>
 
             <div className={styles.registrationContainer}>
-                <ResetPasswordComp />
+                <LoginComp />
             </div>
         </div>
     );
 }
 
-export default ResetPassword;
+export default Login;

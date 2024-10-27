@@ -26,7 +26,9 @@ export const RegisterComp = () => {
 
             <button className={styles.further}>Далі</button>
 
-            <div className={styles.login}>Увійти</div>
+            <a href="/login" className={styles.login}>
+                Увійти
+            </a>
         </div>
     );
 };

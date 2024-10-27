@@ -1,32 +1,18 @@
 import React from 'react';
-import styles from './Register.css';
+import styles from './ForgotPassword.css';
 
 export const ForgotPasswordComp = () => {
     return (
         <div className={styles.mainContainer}>
-            <span className={styles.register}>Реєстрація</span>
+            <span className={styles.resetPass}>Забули пароль</span>
 
             <div className={styles.userInput}>
                 <div className={styles.input}>
-                    <input type="text" className={styles.email} placeholder="Електронна пошта" />
-                </div>
-
-                <div className={styles.input}>
-                    <input type="text" className={styles.nickname} placeholder="Користувацьке ім’я" />
-                </div>
-
-                <div className={styles.input}>
-                    <input type="password" className={styles.password} placeholder="Пароль" />
-                </div>
-
-                <div className={styles.input}>
-                    <input type="password" className={styles.passwordConfirm} placeholder="Підтвердити пароль" />
+                    <input type="email" className={styles.email} placeholder="Електронна пошта" />
                 </div>
             </div>
 
-            <button className={styles.further}>Далі</button>
-
-            <div className={styles.login}>Увійти</div>
+            <button className={styles.send}>Надіслати</button>
         </div>
     );
 };
