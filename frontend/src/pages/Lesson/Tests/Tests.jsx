@@ -1,7 +1,6 @@
 import styles from './Tests.css';
 
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
@@ -26,22 +25,18 @@ function Tests() {
         },
     ];
 
-    // const { id, testId } = useParams();
-    // const questions = getQuestionsForTest(testId);
-
     return (
         <div className={styles.tests}>
+            <Header />
             <div className={styles.content}>
                 <div className={styles.mainContent}>
-                    <Header />
                     <TestPage
                         questions={questions}
                         onSubmit={(answers) => console.log('Submitted answers:', answers)}
                     />
                 </div>
-
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }

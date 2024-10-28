@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import styles from './Test.css';
 
@@ -35,13 +36,6 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
         setCircles(newCircles);
         setCurrentScore(score);
         setIsResultVisible(true);
-        if (attempt + 1 < maxAttempts) {
-            setAttempt(attempt + 1);
-            setAnswers(Array(questions.length).fill(null));
-            setCurrentQuestion(0);
-        } else {
-            onSubmit(circles);
-        }
     };
 
     const handleRetry = () => {
@@ -50,8 +44,6 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
         setAnswers(Array(questions.length).fill(null));
         setAttempt(attempt + 1);
     };
-
-    const handleBackToTests = () => {};
 
     const progress = ((currentQuestion + 1) / questions.length) * 100;
     const isLastQuestion = currentQuestion === questions.length - 1;
@@ -83,14 +75,14 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
                             <div key={i} className={`${styles.circle} ${styles[status]}`} />
                         ))}
                     </div>
-                    {attempt < maxAttempts - 1 && (
+                    {attempt + 1 < maxAttempts && (
                         <button className={styles.retryButton} onClick={handleRetry}>
                             Спробувати ще раз
                         </button>
                     )}
-                    <button className={styles.backButton} onClick={handleBackToTests}>
+                    <Link to={`/lessons/${1}/tests`} className={`${styles.retryButton}`}>
                         Повернутись до всіх тестів
-                    </button>
+                    </Link>
                 </div>
             )}
         </div>

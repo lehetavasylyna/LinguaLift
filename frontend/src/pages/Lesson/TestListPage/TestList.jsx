@@ -1,12 +1,14 @@
 import styles from './TestList.css';
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import { TestList } from '../../../components/TestList';
 
 function Test() {
+    const lessonId = 1;
     const testData = [
         {
             name: 'Test 1',
@@ -26,9 +28,10 @@ function Test() {
         <div className={styles.tests}>
             <Header />
             <div className={styles.content}>
-                <a href="./lessons/:id" className={styles.backBtn}>
+                <Link to={`/lessons/${lessonId}`} className={styles.backBtn}>
                     ⬅ Назад
-                </a>
+                </Link>
+
                 <TestList tests={testData} />
             </div>
             <Footer />

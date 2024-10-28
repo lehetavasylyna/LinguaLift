@@ -1,76 +1,40 @@
-.testPage {
-    padding: 20px;
-}
-
 .options {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 24px;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.result-item {
+    margin-bottom: 10px;
 }
 
 .optionButton {
-    margin: 10px 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-.submitButton {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    line-height: 24px;
+    font-size: 24px;
+    padding: 12px;
+    margin-bottom: 16px;
 }
 
 .retryButton {
-    background-color: #2196f3;
-    color: white;
+    line-height: 24px;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-top: 16px;
+    background-color: #4caf50;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-}
-
-.backButton {
-    background-color: #f44336;
-    color: white;
-    border-radius: 5px;
-}
-
-.resultContainer {
+    border-radius: 4px;
+    cursor: pointer;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.resultText {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.circlesContainer {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.success {
-    background-color: green;
-}
-
-.fail {
-    background-color: red;
-}
-
-.notAttempted {
-    background-color: white;
-    border: 1px solid gray;
+.retryButton:hover {
+    background-color: #45a049;
 }
