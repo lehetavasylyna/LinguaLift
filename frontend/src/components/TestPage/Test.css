@@ -1,13 +1,76 @@
+.testPage {
+    padding: 20px;
+}
+
 .options {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.results {
-    margin-top: 20px;
+.optionButton {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
-.result-item {
-    margin-bottom: 10px;
+.submitButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.retryButton {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.backButton {
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+}
+
+.resultContainer {
+    text-align: center;
+}
+
+.resultText {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.circlesContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.success {
+    background-color: green;
+}
+
+.fail {
+    background-color: red;
+}
+
+.notAttempted {
+    background-color: white;
+    border: 1px solid gray;
 }

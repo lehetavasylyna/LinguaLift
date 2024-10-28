@@ -10,8 +10,8 @@ import EditProfile from './pages/EditProfile/EditProfile';
 import Login from './pages/LoginPage/Login';
 import ResetPassword from './pages/ResetPasswordPage/ResetPassword';
 import ForgotPassword from './pages/ForgotPasswordPage/ForgotPassword';
-// import Tests from './pages/Lesson/Tests/Tests';
-// import TestList from './pages/Lesson/TestListPage/TestList';
+import Tests from './pages/Lesson/Tests/Tests';
+import TestList from './pages/Lesson/TestListPage/TestList';
 
 const App = () => {
     return (
@@ -19,9 +19,11 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/lessons" element={<Lessons />} />
+
                 <Route path="/lessons/:id" element={<LessonHome />} />
-                {/* <Route path="/lessons/:id/tests/:x" element={<Tests />} /> */}
-                {/* <Route path="/lessons/:id/tests" element={<TestList />} /> */}
+                <Route path="/lessons/:id/tests" element={<TestList />} />
+                <Route path="/lessons/:id/tests/:testId" element={<Tests />} />
+
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/resetPassword" element={<ResetPassword />} />

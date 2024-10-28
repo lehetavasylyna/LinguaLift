@@ -4,9 +4,9 @@ import React from 'react';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
-import { TestsList } from '../../../components/TestList';
+import { TestList } from '../../../components/TestList';
 
-function Tests() {
+function Test() {
     const testData = [
         {
             name: 'Test 1',
@@ -26,14 +26,14 @@ function Tests() {
         <div className={styles.tests}>
             <Header />
             <div className={styles.content}>
-                <a href="./lessons/home" className={styles.back}>
+                <a href="./lessons/:id" className={styles.backBtn}>
                     ⬅ Назад
                 </a>
-                <TestsList tests={testData} />
+                <TestList tests={testData} />
             </div>
             <Footer />
         </div>
     );
 }
 
-export default Tests;
+export default Test;

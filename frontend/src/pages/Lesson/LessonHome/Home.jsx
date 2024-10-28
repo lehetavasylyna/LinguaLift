@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './Home.css';
+
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import LessonDescription from '../../../components/LessonDescription';
 
 export const LessonHome = () => {
+    const lessonId = 1;
     return (
         <div className={styles.mainContent}>
             <Header />
@@ -20,7 +24,9 @@ export const LessonHome = () => {
 
                 <LessonDescription />
 
-                <button className={styles.startBtn}>Почати</button>
+                <Link to={`/lessons/${lessonId}/tests`} className={styles.startBtn}>
+                    Почати
+                </Link>
             </div>
             <Footer />
         </div>

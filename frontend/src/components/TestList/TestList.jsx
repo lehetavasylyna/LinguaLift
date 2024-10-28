@@ -1,18 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './TestList.css';
 
-export const TestsList = ({ tests }) => {
+export const TestList = ({ tests }) => {
     return (
         <div className={styles.testList}>
             {tests.map((test, index) => (
                 <div key={index} className={styles.testItem}>
-                    <div className={styles.card}>
-                        <span className={styles.name}>{test.name}</span>
-                    </div>
-
+                    <Link to={`/lessons/${lessonId}/tests/${index}`} className={styles.testLink}>
+                        {test.name}
+                    </Link>
                     <div className={styles.attempts}>
-                        {test.attempts.map((attempt, i) => (
-                            <div key={i} className={`${styles.circle} ${styles[attempt]}`} />
+                        {test.attempts.map((attempt, idx) => (
+                            <span key={idx} className={styles.attempt}>
+                                {attempt}
+                            </span>
                         ))}
                     </div>
                 </div>
@@ -21,4 +24,4 @@ export const TestsList = ({ tests }) => {
     );
 };
 
-export default TestsList;
+export default TestList;

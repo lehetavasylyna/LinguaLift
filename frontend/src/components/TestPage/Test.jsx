@@ -64,7 +64,7 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
                     <h2>{questions[currentQuestion].question}</h2>
                     <div className={styles.options}>
                         {questions[currentQuestion].options.map((option, i) => (
-                            <button key={i} onClick={() => handleAnswer(option)}>
+                            <button key={i} className={styles.optionButton} onClick={() => handleAnswer(option)}>
                                 {option}
                             </button>
                         ))}

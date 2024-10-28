@@ -1,6 +1,7 @@
 import styles from './Tests.css';
 
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
@@ -24,6 +25,9 @@ function Tests() {
             correctAnswer: 'a',
         },
     ];
+
+    // const { id, testId } = useParams();
+    // const questions = getQuestionsForTest(testId);
 
     return (
         <div className={styles.tests}>
