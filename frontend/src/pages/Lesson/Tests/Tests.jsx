@@ -1,28 +1,12 @@
 import styles from './Tests.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
-// import { TestsList } from '../../../components/TestList';
 import { TestPage } from '../../../components/TestPage';
 
 function Tests() {
-    const testData = [
-        {
-            name: 'Test 1',
-            attempts: ['success', 'fail', 'notAttempted'],
-        },
-        {
-            name: 'Test 2',
-            attempts: ['success', 'success', 'fail'],
-        },
-        {
-            name: 'Test 3',
-            attempts: ['success', 'notAttempted', 'notAttempted'],
-        },
-    ];
-
     const questions = [
         {
             question: 'This is __ orange.',
@@ -46,10 +30,6 @@ function Tests() {
             <div className={styles.content}>
                 <div className={styles.mainContent}>
                     <Header />
-                    {/* <a href="./" className={styles.back}>
-                        ⬅ Назад
-                    </a> */}
-                    {/* <TestsList tests={testData} /> */}
                     <TestPage
                         questions={questions}
                         onSubmit={(answers) => console.log('Submitted answers:', answers)}

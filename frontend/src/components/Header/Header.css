@@ -1,9 +1,10 @@
 .container {
+    width: 100%;
     background-color: #3a5a40;
     padding: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
 }
 
 .logo {
@@ -38,6 +39,7 @@
     padding: 10px 15px;
     transition: background-color 0.3s ease;
     flex: 1;
+    text-decoration: none;
 }
 
 .authBtns {

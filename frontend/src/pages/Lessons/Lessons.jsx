@@ -22,7 +22,7 @@ function Lessons() {
                     </div>
 
                     <div className={styles.sortOptions}>
-                        <select>
+                        <select className={styles.sortedBy}>
                             <option value="newest">Найновіші</option>
                             <option value="oldest">Найстаріші</option>
                             <option value="easiest">Найлегші</option>

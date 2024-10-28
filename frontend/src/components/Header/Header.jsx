@@ -7,10 +7,18 @@ export const Header = () => (
         <div className={styles.menu}>
             <img className={styles.logo} src="../../../assets/img/logo.png" alt="Logo" />
             <div className={styles.overlapMenu}>
-                <div className={styles.menuBtn}>Головна</div>
-                <div className={styles.menuBtn}>Уроки</div>
-                <div className={styles.menuBtn}>Мій Словник</div>
-                <div className={styles.menuBtn}>Статистика</div>
+                <a href="/" className={styles.menuBtn}>
+                    Головна
+                </a>
+                <a href="/lessons" className={styles.menuBtn}>
+                    Уроки
+                </a>
+                <a href="/vocabulary" className={styles.menuBtn}>
+                    Мій Словник
+                </a>
+                <a href="/profile" className={styles.menuBtn}>
+                    Профіль
+                </a>
             </div>
             <div className={styles.authBtns}>
                 <div className={styles.authBtn}>

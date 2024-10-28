@@ -1,16 +1,11 @@
 import styles from './Login.css';
 import React from 'react';
-
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
-import { LessonCard } from '../../components/LessonCard';
 import LoginComp from '../../components/Auth/Login';
 
 function Login() {
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
-            <Header />
 
             <div className={styles.contentContainer}>
                 <div className={`${styles.letsStart} ${styles.blur}`}>

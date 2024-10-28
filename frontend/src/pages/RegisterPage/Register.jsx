@@ -1,16 +1,11 @@
 import styles from './Register.css';
 import React from 'react';
-
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
-import { LessonCard } from '../../components/LessonCard';
 import RegisterComp from '../../components/Auth/Register';
 
 function Register() {
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
-            <Header />
 
             <div className={styles.contentContainer}>
                 <div className={`${styles.letsStart} ${styles.blur}`}>

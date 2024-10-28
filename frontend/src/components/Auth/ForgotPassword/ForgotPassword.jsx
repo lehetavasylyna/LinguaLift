@@ -4,6 +4,9 @@ import styles from './ForgotPassword.css';
 export const ForgotPasswordComp = () => {
     return (
         <div className={styles.mainContainer}>
+            <a className={styles.backToLogin} href="/login">
+                ⬅
+            </a>
             <span className={styles.resetPass}>Забули пароль</span>
 
             <div className={styles.userInput}>

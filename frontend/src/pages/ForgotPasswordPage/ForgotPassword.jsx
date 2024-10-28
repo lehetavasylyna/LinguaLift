@@ -8,7 +8,6 @@ function ForgotPassword() {
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
-            <Header />
 
             <div className={styles.contentContainer}>
                 <div className={`${styles.letsStart} ${styles.blur}`}>
