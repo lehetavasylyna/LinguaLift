@@ -1,18 +1,19 @@
 import React from 'react';
-
-// import styles from './Lesson.css';
+import styles from './LessonCard.css';
 
 export const LessonCard = () => (
-    <div className="overlap-group">
-        <div className="rectangle-2" />
-        <p className="p">Many/much, a little/ a few</p>
-        <img className="image" alt="Image" />
-        <div className="group">
-            <div className="ellipse" />
-            <div className="text-wrapper-9">Intermediate</div>
+    <div className={styles.main}>
+        <div className={styles.backPoint} />
+        <span className={styles.point}>+5</span>
+        <div className={styles.wrapper}>
+            <span className={styles.title}>Артикль a/an, the</span>
+            <div className={styles.img} />
+
+            <div className={styles.section}>
+                <div className={styles.circle} />
+                <span className={styles.diff}>Elementary</span>
+            </div>
         </div>
-        <div className="ellipse-2" />
-        <div className="text-wrapper-10">+30</div>
     </div>
 );
 

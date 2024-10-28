@@ -1,0 +1,13 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.result-item {
+    margin-bottom: 10px;
+}

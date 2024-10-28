@@ -1,0 +1,45 @@
+.description {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: 456px;
+    height: 240px;
+    margin: 17px 0 0 46px;
+    color: #344e41;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    z-index: 2;
+}
+
+.wrapper {
+    width: 548px;
+    height: 640px;
+    margin: 0 auto;
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.lessonImg {
+    position: relative;
+    width: 456px;
+    height: 308px;
+    margin: 36px 0 0 46px;
+    z-index: 1;
+}
+
+.box {
+    position: absolute;
+    width: 548px;
+    height: 640px;
+    top: 0;
+    left: 0;
+    background: #cad5b8;
+    border-radius: 12px;
+}

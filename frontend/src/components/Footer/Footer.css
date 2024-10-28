@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    padding: 20px;
+    background-color: #344e41;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+.footerImgs {
+    display: flex;
+    align-items: center;
+}
+
+.networks {
+    margin-right: 24px;
+}
+
+.footerBtns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footerBtn {
+    margin-left: 24px;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footerBtn:hover {
+    text-decoration: underline;
+}
