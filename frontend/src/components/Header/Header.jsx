@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.css';
 
@@ -22,11 +23,15 @@ export const Header = () => (
             </div>
             <div className={styles.authBtns}>
                 <div className={styles.authBtn}>
-                    <div className={styles.signUp}>Зареєструватися</div>
+                    <Link to={'/register'} className={styles.signUp}>
+                        Зареєструватися
+                    </Link>
                 </div>
 
                 <div className={styles.authBtn}>
-                    <div className={styles.logIn}>Увійти</div>
+                    <Link to={'/login'} className={styles.logIn}>
+                        Увійти
+                    </Link>
                 </div>
             </div>
         </div>

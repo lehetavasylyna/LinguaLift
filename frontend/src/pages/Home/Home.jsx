@@ -1,6 +1,7 @@
 import styles from './Home.css';
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
@@ -13,7 +14,9 @@ const Home = () => {
             <div className={styles.contentContainer}>
                 <div className={styles.mainContent}>
                     <div className={styles.letsStart}>
-                        <div className={styles.letsStartBtn}>Почнемо!</div>
+                        <Link to={'/lessons'} className={styles.letsStartBtn}>
+                            Почнемо!
+                        </Link>
                     </div>
 
                     <p className={styles.greeting}>Hello! Are you ready to study?</p>
@@ -29,7 +32,9 @@ const Home = () => {
                 </div>
 
                 <div className={styles.more}>
-                    <div className={styles.moreBtn}>Ще...</div>
+                    <Link to={'/lessons'} className={styles.moreBtn}>
+                        Ще...
+                    </Link>
                 </div>
             </div>
             <Footer />
