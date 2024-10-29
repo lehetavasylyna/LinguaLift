@@ -8,6 +8,7 @@ import { Header } from '../../components/Header';
 import { LessonCard } from '../../components/LessonCard';
 
 const Home = () => {
+    const lessonId = 1;
     return (
         <div className={styles.home}>
             <Header />
@@ -25,10 +26,21 @@ const Home = () => {
                 </div>
 
                 <div className={styles.lessonsContainer}>
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
                 </div>
 
                 <div className={styles.more}>
