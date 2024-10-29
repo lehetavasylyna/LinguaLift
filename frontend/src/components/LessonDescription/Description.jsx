@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Description.css';
+import styles from './Description.module.css';
 
 export const LessonDescription = () => (
     <div className={styles.wrapper}>
         <div className={styles.box}></div>
 
-        <img src="../../../assets/img/1.jpg" className={styles.lessonImg} />
+        <img src="../../../assets/img/1.jpg" alt="Lesson" className={styles.lessonImg} />
 
         <div className={styles.description}>
             Артиклі — це маленькі слова, які визначають іменники. В англійській мові існують два види артиклів:

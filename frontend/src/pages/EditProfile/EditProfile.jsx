@@ -1,4 +1,4 @@
-import styles from './EditProfile.css';
+import styles from './EditProfile.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../components/Footer';

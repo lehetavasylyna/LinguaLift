@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import styles from './Test.css';
+import styles from './Test.module.css';
 
 export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);

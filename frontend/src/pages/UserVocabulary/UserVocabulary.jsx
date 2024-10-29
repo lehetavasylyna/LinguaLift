@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './UserVocabulary.css';
+import styles from './UserVocabulary.module.css';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 

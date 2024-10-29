@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './LessonCard.css';
+import styles from './LessonCard.module.css';
 
 export const LessonCard = () => (
     <div className={styles.main}>

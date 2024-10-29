@@ -81,3 +81,45 @@
 .btn:active {
     background: #964141;
 }
+
+@media (max-width: 768px) {
+    .mainContent {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .generalInfo {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .generalInfo img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .general {
+        font-size: 20px;
+    }
+
+    .knowledgment {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}

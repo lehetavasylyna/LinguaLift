@@ -1,4 +1,4 @@
-import styles from './ResetPassword.css';
+import styles from './ResetPassword.module.css';
 import React from 'react';
 
 import { Header } from '../../components/Header';

@@ -1,4 +1,4 @@
-import styles from './Lessons.css';
+import styles from './Lessons.module.css';
 import { Link, useParams } from 'react-router-dom';
 
 import React from 'react';
@@ -16,7 +16,7 @@ function Lessons() {
                 <div className={styles.mainContent}>
                     <Header />
 
-                    <div className={styles.searchedDiv}>
+                    <div className={styles.searchedDivLessons}>
                         <input type="text" placeholder="Уведіть назву теми" />
                         <div className={styles.search}>
                             <img src="../../../assets/img/search.png" />

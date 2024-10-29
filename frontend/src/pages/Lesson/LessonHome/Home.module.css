@@ -77,3 +77,46 @@
     flex-direction: column;
     min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+    .startBtn {
+        width: 200px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    .title {
+        font-size: 36px;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .section {
+        width: 120px;
+        font-size: 20px;
+        left: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .startBtn {
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .section {
+        width: 100px;
+        font-size: 18px;
+        left: 3%;
+    }
+
+    .mainContent {
+        min-height: 100vh;
+    }
+}

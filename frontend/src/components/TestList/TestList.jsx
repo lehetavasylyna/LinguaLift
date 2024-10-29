@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './TestList.css';
+import styles from './TestList.module.css';
 
 export const TestList = ({ tests }) => {
     const lessonId = 1;

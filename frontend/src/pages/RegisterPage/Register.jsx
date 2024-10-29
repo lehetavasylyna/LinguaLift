@@ -1,4 +1,4 @@
-import styles from './Register.css';
+import styles from './Register.module.css';
 import React from 'react';
 import RegisterComp from '../../components/Auth/Register';
 

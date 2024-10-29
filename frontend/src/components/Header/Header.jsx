@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Header.css';
+import styles from './Header.module.css';
 
 export const Header = () => (
     <header className={styles.container}>
@@ -15,7 +15,7 @@ export const Header = () => (
                     Уроки
                 </a>
                 <a href="/vocabulary" className={styles.menuBtn}>
-                    Мій Словник
+                    Словник
                 </a>
                 <a href="/profile" className={styles.menuBtn}>
                     Профіль

@@ -1,4 +1,4 @@
-import styles from './Tests.css';
+import styles from './Tests.module.css';
 
 import React from 'react';
 

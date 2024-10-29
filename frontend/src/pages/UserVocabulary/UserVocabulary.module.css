@@ -126,3 +126,98 @@ input {
 .cancelButton:hover {
     background-color: #bbb;
 }
+
+@media (max-width: 768px) {
+    .searchedDiv {
+        width: 90%;
+        top: 27%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .searchedDiv button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    input {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    .box {
+        margin-top: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchedDiv {
+        top: 32%;
+    }
+
+    .searchedDiv input {
+        font-size: 18px;
+    }
+
+    .searchedDiv button {
+        font-size: 20px;
+    }
+
+    .box {
+        margin-top: 200px;
+    }
+
+    .wordEntry {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wordEntry span {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .addWordContainer {
+        padding: 5px;
+    }
+
+    .addWordContainer button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .searchedDiv {
+        top: 32%;
+    }
+
+    .searchedDiv input {
+        font-size: 18px;
+    }
+
+    .searchedDiv button {
+        font-size: 20px;
+    }
+
+    .box {
+        margin-top: 200px;
+    }
+
+    .wordEntry {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wordEntry span {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .addWordContainer {
+        padding: 5px;
+    }
+
+    .addWordContainer button {
+        width: 100%;
+    }
+}

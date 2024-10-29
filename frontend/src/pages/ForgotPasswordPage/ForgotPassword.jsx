@@ -1,7 +1,6 @@
-import styles from './ForgotPassword.css';
+import styles from './ForgotPassword.module.css';
 import React from 'react';
 
-import { Header } from '../../components/Header';
 import ForgotPasswordComp from '../../components/Auth/ForgotPassword';
 
 function ForgotPassword() {
