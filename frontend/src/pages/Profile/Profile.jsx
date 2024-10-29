@@ -1,5 +1,6 @@
 import styles from './Profile.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
@@ -7,8 +8,8 @@ import { Header } from '../../components/Header';
 function Profile() {
     return (
         <div className={styles.profile}>
+            <Header />
             <div className={styles.contentContainer}>
-                <Header />
                 <div className={styles.mainContent}>
                     <div className={styles.generalInfo}>
                         <img src="../../../assets/img/female.png" alt="Profile" />
@@ -25,14 +26,16 @@ function Profile() {
                             </div>
 
                             <div className={styles.btns}>
-                                <button className={styles.edit}>Редагувати профіль</button>
-                                <button className={styles.exit}>Вийти</button>
+                                <Link to="/profile/edit" className={styles.btn}>
+                                    Редагувати профіль
+                                </Link>
+                                <button className={styles.btn}>Вийти</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }

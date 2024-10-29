@@ -51,7 +51,7 @@ input {
     margin-top: 10px;
 }
 
-.sortOptions select {
+.sortOptions .sortedBy {
     margin-top: 100px;
     position: relative;
     z-index: 1;

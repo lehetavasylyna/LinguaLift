@@ -26,8 +26,8 @@
     font-family: Montserrat;
     font-size: 36px;
     font-weight: 500;
-    line-height: 24px;
     margin: 16px 36px;
+    text-decoration: none;
 }
 
 .greeting {
@@ -58,6 +58,10 @@
     margin-bottom: 24px;
 }
 
+.moreBtn {
+    padding-bottom: 12px;
+}
+
 .lessonsContainer {
     z-index: 1;
     display: grid;
@@ -72,4 +76,14 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contentContainer {
+    flex: 1;
 }

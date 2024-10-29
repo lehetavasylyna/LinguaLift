@@ -1,7 +1,13 @@
 .container {
-    display: flex;
-    padding: 20px;
+    /* display: flex; */
+    /* padding: 20px; */
     background-color: #344e41;
+
+    width: 100%;
+    padding: 20px;
+    /* background-color: #333; */
+    color: #fff;
+    text-align: center;
 }
 
 .group {

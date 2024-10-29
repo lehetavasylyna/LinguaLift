@@ -16,10 +16,6 @@
     background-position: center;
 }
 
-Header {
-    filter: blur(8px);
-}
-
 .registrationContainer {
     position: absolute;
     top: 50%;

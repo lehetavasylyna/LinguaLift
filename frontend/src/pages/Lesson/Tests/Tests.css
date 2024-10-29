@@ -1,82 +1,9 @@
-.testPage {
+.tests {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 100vh;
 }
 
-.options {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-button {
-    margin: 10px 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.submitButton {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-.retryButton {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-.backButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-.resultContainer {
-    text-align: center;
-}
-
-.resultText {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.circlesContainer {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.success {
-    background-color: green;
-}
-
-.fail {
-    background-color: red;
-}
-
-.notAttempted {
-    background-color: white;
-    border: 1px solid gray;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.content {
+    flex: 1;
 }

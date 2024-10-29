@@ -1,4 +1,5 @@
 import styles from './Lessons.css';
+import { Link, useParams } from 'react-router-dom';
 
 import React from 'react';
 
@@ -7,6 +8,7 @@ import { Header } from '../../components/Header';
 import { LessonCard } from '../../components/LessonCard';
 
 function Lessons() {
+    const lessonId = 1;
     return (
         <div className={styles.lessons}>
             <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
@@ -22,7 +24,7 @@ function Lessons() {
                     </div>
 
                     <div className={styles.sortOptions}>
-                        <select>
+                        <select className={styles.sortedBy}>
                             <option value="newest">Найновіші</option>
                             <option value="oldest">Найстаріші</option>
                             <option value="easiest">Найлегші</option>
@@ -32,12 +34,21 @@ function Lessons() {
                 </div>
 
                 <div className={styles.lessonsContainer}>
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
-                    <LessonCard className={styles.lessonsCard} />
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
+                    <Link to={`/lessons/${lessonId}`}>
+                        <LessonCard className={styles.lessonsCard} />
+                    </Link>
                 </div>
 
                 <Footer />
