@@ -11,8 +11,12 @@ export const RegisterComp = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         const userData = { email, password };
-        const result = await register(userData);
-        console.log(result);
+        try {
+            const result = await register(userData);
+            console.log('Registration successful:', result);
+        } catch (error) {
+            console.error('Registration error:', error.message);
+        }
     };
 
     // return (

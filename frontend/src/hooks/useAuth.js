@@ -11,7 +11,7 @@ const useAuth = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch('/register', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -23,35 +23,40 @@ const useAuth = () => {
                 throw new Error('Registration failed');
             }
 
+            const data = await response.json();
             setSuccess(true);
-            return await response.json();
+            return data;
         } catch (err) {
+            console.error('Registration error:', err);
             setError(err);
         } finally {
             setLoading(false);
         }
     };
 
-    const login = async (credentials) => {
+    const login = async (userData) => {
         setLoading(true);
         setError(null);
         setSuccess(false);
 
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(credentials),
+                body: JSON.stringify(userData),
             });
 
             if (!response.ok) {
                 throw new Error('Login failed');
             }
 
+            const data = await response.json();
+            const token = data.token;
+            localStorage.setItem('token', token);
             setSuccess(true);
-            return await response.json();
+            return data;
         } catch (err) {
             setError(err);
         } finally {
@@ -65,7 +70,7 @@ const useAuth = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch('/api/forgot-password', {
+            const response = await fetch('http://localhost:3000/forgotPassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,8 +82,9 @@ const useAuth = () => {
                 throw new Error('Error sending password reset email');
             }
 
+            const data = await response.json();
             setSuccess(true);
-            return await response.json();
+            return data;
         } catch (err) {
             setError(err);
         } finally {
@@ -92,7 +98,7 @@ const useAuth = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch(`/api/reset-password/${token}`, {
+            const response = await fetch(`http://localhost:3000/reset-password/${token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -104,8 +110,9 @@ const useAuth = () => {
                 throw new Error('Error resetting password');
             }
 
+            const data = await response.json();
             setSuccess(true);
-            return await response.json();
+            return data;
         } catch (err) {
             setError(err);
         } finally {
