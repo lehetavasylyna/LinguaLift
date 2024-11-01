@@ -1,22 +1,51 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
+export const useAuthContext = () => useContext(AuthContext);
 
-    const login = (userData) => {
-        setIsAuthenticated(true);
-        setUser(userData);
+export const AuthProvider = ({ children }) => {
+    const { register, login, forgotPassword, resetPassword, loading, error, success } = useAuth();
+    const [isRegistered, setIsRegistered] = useState(!!localStorage.getItem('token'));
+
+    const updateAuthStatus = (status) => {
+        setIsRegistered(status);
+        if (status) {
+            localStorage.setItem('token', 'your_token_here');
+        } else {
+            localStorage.removeItem('token');
+        }
     };
 
     const logout = () => {
-        setIsAuthenticated(false);
-        setUser(null);
+        localStorage.removeItem('token');
+        setIsRegistered(false);
     };
 
-    return <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>{children}</AuthContext.Provider>;
-};
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsRegistered(true);
+        }
+    }, []);
 
-export const useAuth = () => useContext(AuthContext);
+    return (
+        <AuthContext.Provider
+            value={{
+                isRegistered,
+                register,
+                login,
+                forgotPassword,
+                resetPassword,
+                loading,
+                error,
+                success,
+                updateAuthStatus,
+                logout,
+            }}
+        >
+            {children}
+        </AuthContext.Provider>
+    );
+};

@@ -1,11 +1,21 @@
 import styles from './Profile.module.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 function Profile() {
+    const { logout } = useContext(useAuthContext);
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
+
     return (
         <div className={styles.profile}>
             <Header />
@@ -29,7 +39,9 @@ function Profile() {
                                 <Link to="/profile/edit" className={styles.btn}>
                                     Редагувати профіль
                                 </Link>
-                                <button className={styles.btn}>Вийти</button>
+                                <button className={styles.btn} onClick={handleLogout}>
+                                    Вийти
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 import useAuth from '../../../hooks/useAuth';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 export const LoginComp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { login, loading, error, success } = useAuth();
+    const { updateAuthStatus } = useAuthContext();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         const userData = { email, password };
         try {
-            const result = await login(userData);
-            console.log('Login successful:', result);
+            await login(userData);
+            updateAuthStatus(true);
+            console.log('Login successful');
         } catch (err) {
             console.error('Login error:', err.message);
         }

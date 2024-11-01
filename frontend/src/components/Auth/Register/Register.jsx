@@ -1,77 +1,92 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 import useAuth from '../../../hooks/useAuth';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
-export const RegisterComp = () => {
+export const RegisterComp = ({ isRegistration }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [token, setToken] = useState('');
-    const { register, loading, error, success } = useAuth();
+    const [nickname, setNickname] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const { register, loading } = useAuth();
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const { updateAuthStatus } = useAuthContext();
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        const userData = { email, password };
+        if (password !== confirmPassword) {
+            setErrorMessage('Passwords do not match!');
+            return;
+        }
+
+        const userData = { email, password, nickname };
         try {
-            const result = await register(userData);
-            console.log('Registration successful:', result);
+            await register(userData);
+            updateAuthStatus(true);
+            setEmail('');
+            setPassword('');
+            setNickname('');
+            setConfirmPassword('');
+            navigate('/lessons');
         } catch (error) {
-            console.error('Registration error:', error.message);
+            setErrorMessage(error.message);
         }
     };
 
-    // return (
-    //     <div className={styles.mainContainer}>
-    //         <span className={styles.register}>Реєстрація</span>
-
-    //         <div className={styles.userInput}>
-    //             <div className={styles.input}>
-    //                 <input type="text" className={styles.email} placeholder="Електронна пошта" />
-    //             </div>
-
-    //             <div className={styles.input}>
-    //                 <input type="text" className={styles.nickname} placeholder="Користувацьке ім’я" />
-    //             </div>
-
-    //             <div className={styles.input}>
-    //                 <input type="password" className={styles.password} placeholder="Пароль" />
-    //             </div>
-
-    //             <div className={styles.input}>
-    //                 <input type="password" className={styles.passwordConfirm} placeholder="Підтвердити пароль" />
-    //             </div>
-    //         </div>
-
-    //         <button className={styles.further}>Далі</button>
-
-    //         <a href="/login" className={styles.login}>
-    //             Увійти
-    //         </a>
-    //     </div>
-    // );
     return (
-        <div>
-            <h2>Register</h2>
-            <form onSubmit={handleRegister}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Registering...' : 'Register'}
+        <div className={styles.mainContainer}>
+            <span className={styles.register}>Реєстрація</span>
+            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
+            <form onSubmit={handleRegister} className={styles.userInput}>
+                <div className={styles.input}>
+                    <input
+                        className={styles.email}
+                        type="email"
+                        placeholder="Електронна пошта"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.input}>
+                    <input
+                        type="text"
+                        className={styles.nickname}
+                        placeholder="Користувацьке ім’я"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.input}>
+                    <input
+                        className={styles.password}
+                        placeholder="Пароль"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.input}>
+                    <input
+                        type="password"
+                        className={styles.passwordConfirm}
+                        placeholder="Підтвердити пароль"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button className={styles.registerBtn} type="submit" disabled={loading}>
+                    {loading ? 'Реєстрація...' : 'Реєстрація'}
                 </button>
-                {error && <p style={{ color: 'red' }}>{error.message}</p>}
-                {success && <p style={{ color: 'green' }}>Registration successful!</p>}
             </form>
+            <a href="/login" className={styles.login}>
+                Увійти
+            </a>
         </div>
     );
 };

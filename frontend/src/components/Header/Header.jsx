@@ -1,41 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './Header.module.css';
 
-export const Header = () => (
-    <header className={styles.container}>
-        <div className={styles.menu}>
-            <img className={styles.logo} src="../../../assets/img/logo.png" alt="Logo" />
-            <div className={styles.overlapMenu}>
-                <a href="/" className={styles.menuBtn}>
-                    Головна
-                </a>
-                <a href="/lessons" className={styles.menuBtn}>
-                    Уроки
-                </a>
-                <a href="/vocabulary" className={styles.menuBtn}>
-                    Словник
-                </a>
-                <a href="/profile" className={styles.menuBtn}>
-                    Профіль
-                </a>
-            </div>
-            <div className={styles.authBtns}>
-                <div className={styles.authBtn}>
-                    <Link to={'/register'} className={styles.signUp}>
-                        Зареєструватися
-                    </Link>
-                </div>
+export const Header = () => {
+    const { isRegistered, logout } = useAuthContext();
 
-                <div className={styles.authBtn}>
-                    <Link to={'/login'} className={styles.logIn}>
-                        Увійти
+    return (
+        <header className={styles.container}>
+            <div className={styles.menu}>
+                <img className={styles.logo} src="../../../assets/img/logo.png" alt="Logo" />
+                <div className={styles.overlapMenu}>
+                    <Link to="/" className={styles.menuBtn}>
+                        Головна
+                    </Link>
+                    <Link to="/lessons" className={styles.menuBtn}>
+                        Уроки
+                    </Link>
+                    <Link to="/vocabulary" className={styles.menuBtn}>
+                        Словник
+                    </Link>
+                    <Link to="/profile" className={styles.menuBtn}>
+                        Профіль
                     </Link>
                 </div>
+                <div className={styles.authBtns}>
+                    {!isRegistered ? (
+                        <>
+                            <div className={styles.authBtn}>
+                                <Link to="/register" className={styles.signUp}>
+                                    Зареєструватися
+                                </Link>
+                            </div>
+                            <div className={styles.authBtn}>
+                                <Link to="/login" className={styles.logIn}>
+                                    Увійти
+                                </Link>
+                            </div>
+                        </>
+                    ) : (
+                        <button onClick={logout} className={styles.logoutBtn}>
+                            Вийти
+                        </button>
+                    )}
+                </div>
             </div>
-        </div>
-    </header>
-);
+        </header>
+    );
+};
 
 export default Header;
