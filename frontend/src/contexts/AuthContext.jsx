@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const { register, login, forgotPassword, resetPassword, loading, error, success } = useAuth();
     const [isRegistered, setIsRegistered] = useState(!!localStorage.getItem('token'));
 

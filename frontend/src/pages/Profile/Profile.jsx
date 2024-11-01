@@ -1,12 +1,12 @@
 import styles from './Profile.module.css';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 function Profile() {
-    const { logout } = useContext(useAuthContext);
+    const { logout } = useAuthContext();
 
     const handleLogout = async () => {
         try {

@@ -76,3 +76,17 @@ input::placeholder {
 .login:hover {
     text-decoration: underline;
 }
+
+.backToHome {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #ff6868;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.backToHome:hover {
+    color: #ad3636;
+}

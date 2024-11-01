@@ -39,9 +39,7 @@ export const Header = () => {
                             </div>
                         </>
                     ) : (
-                        <button onClick={logout} className={styles.logoutBtn}>
-                            Вийти
-                        </button>
+                        <></>
                     )}
                 </div>
             </div>

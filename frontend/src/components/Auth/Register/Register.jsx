@@ -37,6 +37,9 @@ export const RegisterComp = ({ isRegistration }) => {
 
     return (
         <div className={styles.mainContainer}>
+            <a className={styles.backToHome} href="/">
+                ⬅
+            </a>
             <span className={styles.register}>Реєстрація</span>
             {errorMessage && <div className={styles.error}>{errorMessage}</div>}
             <form onSubmit={handleRegister} className={styles.userInput}>
@@ -75,7 +78,7 @@ export const RegisterComp = ({ isRegistration }) => {
                         type="password"
                         className={styles.passwordConfirm}
                         placeholder="Підтвердити пароль"
-                        value={confirmPassword}
+                        value={password}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
