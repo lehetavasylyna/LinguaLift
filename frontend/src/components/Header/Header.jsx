@@ -14,12 +14,34 @@ export const Header = () => {
                     <Link to="/" className={styles.menuBtn}>
                         Головна
                     </Link>
-                    <Link to="/lessons" className={styles.menuBtn}>
-                        Уроки
-                    </Link>
-                    <Link to="/vocabulary" className={styles.menuBtn}>
-                        Словник
-                    </Link>
+
+                    {!isRegistered ? (
+                        <>
+                            <Link to="/login" className={styles.menuBtn}>
+                                Уроки
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/lessons" className={styles.menuBtn}>
+                                Уроки
+                            </Link>
+                        </>
+                    )}
+
+                    {!isRegistered ? (
+                        <>
+                            <Link to="/login" className={styles.menuBtn}>
+                                Словник
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/vocabulary" className={styles.menuBtn}>
+                                Словник
+                            </Link>
+                        </>
+                    )}
 
                     {!isRegistered ? (
                         <></>

@@ -6,19 +6,6 @@
     position: relative;
 }
 
-.letsStart {
-    position: absolute;
-    top: 60%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 272px;
-    height: 89px;
-    padding: 12px 24px 12px 24px;
-    background: #ff6868;
-    border-radius: 8px;
-}
-
 .letsStartBtn,
 .moreBtn {
     height: 24px;
@@ -28,6 +15,25 @@
     font-weight: 500;
     margin: 16px 36px;
     text-decoration: none;
+}
+
+.letsStartBtn {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 220px;
+    height: 64px;
+    padding: 12px 24px 12px 24px;
+    background: #ff6868;
+    border-radius: 8px;
+}
+
+.letsStartBtn:hover {
+    width: 230px;
+    height: 74px;
+    background: #b63434;
 }
 
 .greeting {
@@ -42,24 +48,27 @@
     font-weight: 500;
 }
 
-.more {
+.moreBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     position: relative;
-    width: 229px;
-    height: 75px;
+    width: 200px;
+    height: 64px;
     margin: 46px 0 0 627px;
     padding: 12px 24px 12px 24px;
     background: #ff6868;
     z-index: 3;
     border-radius: 8px;
     margin-bottom: 24px;
+    padding-bottom: 12px;
 }
 
-.moreBtn {
-    padding-bottom: 12px;
+.moreBtn:hover {
+    width: 210px;
+    height: 74px;
+    background: #b63434;
 }
 
 .lessonsContainer {

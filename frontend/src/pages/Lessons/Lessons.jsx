@@ -1,54 +1,78 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Lessons.module.css';
-import { Link, useParams } from 'react-router-dom';
-
-import React from 'react';
-
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { LessonCard } from '../../components/LessonCard';
+import LessonCard from '../../components/LessonCard';
 
 function Lessons() {
-    const lessonId = 1;
+    const lessons = [
+        { id: 1, title: 'Articles a/an, the', difficulty: 'Easy', date: '2023-01-01', points: 5 },
+        { id: 2, title: 'Lesson 2', difficulty: 'Hard', date: '2023-02-01', points: 10 },
+        { id: 3, title: 'Lesson 3', difficulty: 'Medium', date: '2023-03-01', points: 8 },
+    ];
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [sortOption, setSortOption] = useState('newest');
+
+    const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
+
+    const filteredLessons = lessons
+        .filter((lesson) => lesson.title.toLowerCase().includes(searchQuery.toLowerCase()))
+        .sort((a, b) => {
+            if (sortOption === 'newest') return new Date(b.date) - new Date(a.date);
+            if (sortOption === 'oldest') return new Date(a.date) - new Date(b.date);
+            if (sortOption === 'easiest') return difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
+            if (sortOption === 'hardest') return difficultyOrder[b.difficulty] - difficultyOrder[a.difficulty];
+            return 0;
+        });
+
     return (
         <div className={styles.lessons}>
             <img className={styles.background} src="../../../assets/img/back.png" alt="background" />
             <div className={styles.content}>
-                <div className={styles.mainContent}>
-                    <Header />
+                <Header />
 
-                    <div className={styles.searchedDivLessons}>
-                        <input type="text" placeholder="Уведіть назву теми" />
-                        <div className={styles.search}>
-                            <img src="../../../assets/img/search.png" />
-                        </div>
-                    </div>
-
-                    <div className={styles.sortOptions}>
-                        <select className={styles.sortedBy}>
-                            <option value="newest">Найновіші</option>
-                            <option value="oldest">Найстаріші</option>
-                            <option value="easiest">Найлегші</option>
-                            <option value="hardest">Найважчі</option>
-                        </select>
+                <div className={styles.searchedDivLessons}>
+                    <input
+                        type="text"
+                        placeholder="Уведіть назву теми"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <div className={styles.search}>
+                        <img src="../../../assets/img/search.png" alt="search" />
                     </div>
                 </div>
 
+                <div className={styles.sortOptions}>
+                    <select
+                        className={styles.sortedBy}
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value)}
+                    >
+                        <option value="newest">Найновіші</option>
+                        <option value="oldest">Найстаріші</option>
+                        <option value="easiest">Найлегші</option>
+                        <option value="hardest">Найважчі</option>
+                    </select>
+                </div>
+
                 <div className={styles.lessonsContainer}>
-                    <Link to={`/lessons/${lessonId}`}>
-                        <LessonCard className={styles.lessonsCard} />
-                    </Link>
-                    <Link to={`/lessons/${lessonId}`}>
-                        <LessonCard className={styles.lessonsCard} />
-                    </Link>
-                    <Link to={`/lessons/${lessonId}`}>
-                        <LessonCard className={styles.lessonsCard} />
-                    </Link>
-                    <Link to={`/lessons/${lessonId}`}>
-                        <LessonCard className={styles.lessonsCard} />
-                    </Link>
-                    <Link to={`/lessons/${lessonId}`}>
-                        <LessonCard className={styles.lessonsCard} />
-                    </Link>
+                    {filteredLessons.length > 0 ? (
+                        filteredLessons.map((lesson) => (
+                            <Link key={lesson.id} to={`/lessons/${lesson.id}`}>
+                                <LessonCard
+                                    title={lesson.title}
+                                    difficulty={lesson.difficulty}
+                                    date={lesson.date}
+                                    points={lesson.points}
+                                />
+                            </Link>
+                        ))
+                    ) : (
+                        <p className={styles.noLessons}>Уроки не знайдені</p>
+                    )}
                 </div>
 
                 <Footer />
