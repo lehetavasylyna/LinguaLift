@@ -78,7 +78,7 @@ export const RegisterComp = ({ isRegistration }) => {
                         type="password"
                         className={styles.passwordConfirm}
                         placeholder="Підтвердити пароль"
-                        value={password}
+                        value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />

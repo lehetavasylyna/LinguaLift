@@ -20,9 +20,16 @@ export const Header = () => {
                     <Link to="/vocabulary" className={styles.menuBtn}>
                         Словник
                     </Link>
-                    <Link to="/profile" className={styles.menuBtn}>
-                        Профіль
-                    </Link>
+
+                    {!isRegistered ? (
+                        <></>
+                    ) : (
+                        <>
+                            <Link to="/profile" className={styles.menuBtn}>
+                                Профіль
+                            </Link>
+                        </>
+                    )}
                 </div>
                 <div className={styles.authBtns}>
                     {!isRegistered ? (

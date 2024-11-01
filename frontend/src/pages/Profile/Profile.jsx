@@ -1,16 +1,18 @@
 import styles from './Profile.module.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 function Profile() {
     const { logout } = useAuthContext();
+    const navigate = useNavigate();
 
     const handleLogout = async () => {
         try {
             await logout();
+            navigate('/');
         } catch (error) {
             console.error('Logout error:', error);
         }

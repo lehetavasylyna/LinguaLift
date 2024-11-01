@@ -15,12 +15,19 @@ export const LoginComp = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        if (password !== confirmPassword) {
+            setErrorMessage('Passwords do not match');
+            return;
+        }
+
         const userData = { email, password };
         try {
             await login(userData);
             updateAuthStatus(true);
             setEmail('');
             setPassword('');
+            setConfirmPassword('');
             navigate('/lessons');
         } catch (err) {
             setErrorMessage(err.message);
@@ -59,7 +66,14 @@ export const LoginComp = () => {
                 </div>
 
                 <div className={styles.input}>
-                    <input type="password" className={styles.passwordConfirm} placeholder="Підтвердити пароль" />
+                    <input
+                        type="password"
+                        className={styles.passwordConfirm}
+                        placeholder="Підтвердити пароль"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
                 </div>
 
                 <button className={styles.loginBtn} type="submit" disabled={loading}>
