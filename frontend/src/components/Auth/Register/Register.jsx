@@ -5,14 +5,25 @@ import useAuth from '../../../hooks/useAuth';
 import { useAuthContext } from '../../../contexts/AuthContext';
 
 export const RegisterComp = ({ isRegistration }) => {
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [nickname, setNickname] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
+    // const { register, loading } = useAuth();
+    // const [errorMessage, setErrorMessage] = useState('');
+    // const navigate = useNavigate();
+    // const { updateAuthStatus } = useAuthContext();
+
+    const [registrationData, setRegistrationData] = useState(null);
+    // const [showData, setShowData] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [nickname, setNickname] = useState('');
+    const [userName, setUserName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const { register, loading } = useAuth();
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const { updateAuthStatus } = useAuthContext();
+    const { updateAuthStatus, loadUserProfile } = useAuthContext();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -21,16 +32,25 @@ export const RegisterComp = ({ isRegistration }) => {
             return;
         }
 
-        const userData = { email, password, nickname };
+        const userData = { email, userName, password, passwordConfirm: confirmPassword };
         try {
-            await register(userData);
+            setErrorMessage('');
+
+            const data = await register(userData);
+            console.log('Registration success:', data);
+
+            setRegistrationData({ email, userName });
+            // setShowData(false);
             updateAuthStatus(true);
+            await loadUserProfile();
+
             setEmail('');
             setPassword('');
-            setNickname('');
+            setUserName('');
             setConfirmPassword('');
             navigate('/lessons');
         } catch (error) {
+            console.error('Registration error:', error);
             setErrorMessage(error.message);
         }
     };
@@ -56,10 +76,10 @@ export const RegisterComp = ({ isRegistration }) => {
                 <div className={styles.input}>
                     <input
                         type="text"
-                        className={styles.nickname}
+                        className={styles.userName}
                         placeholder="Користувацьке ім’я"
-                        value={nickname}
-                        onChange={(e) => setNickname(e.target.value)}
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
                         required
                     />
                 </div>

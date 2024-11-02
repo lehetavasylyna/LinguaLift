@@ -45,7 +45,7 @@
     align-items: center;
 }
 .email,
-.nickname,
+.userName,
 .password,
 .passwordConfirm {
     width: 450px;

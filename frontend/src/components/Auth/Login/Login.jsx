@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 export const LoginComp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const { login, loading, error, success } = useAuth();
     const { updateAuthStatus } = useAuthContext();
     const navigate = useNavigate();
@@ -15,11 +14,7 @@ export const LoginComp = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
-        if (password !== confirmPassword) {
-            setErrorMessage('Passwords do not match');
-            return;
-        }
+        setErrorMessage('');
 
         const userData = { email, password };
         try {
@@ -27,10 +22,9 @@ export const LoginComp = () => {
             updateAuthStatus(true);
             setEmail('');
             setPassword('');
-            setConfirmPassword('');
             navigate('/lessons');
         } catch (err) {
-            setErrorMessage(err.message);
+            setErrorMessage(err.response ? err.response.data.message : 'Something went wrong');
         }
     };
 
@@ -45,6 +39,7 @@ export const LoginComp = () => {
             <form onSubmit={handleLogin} className={styles.userInput}>
                 <div className={styles.input}>
                     <input
+                        name="email"
                         type="email"
                         className={styles.email}
                         placeholder="Електронна пошта"
@@ -56,22 +51,12 @@ export const LoginComp = () => {
 
                 <div className={styles.input}>
                     <input
+                        name="password"
                         type="password"
                         className={styles.password}
                         placeholder="Пароль"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className={styles.input}>
-                    <input
-                        type="password"
-                        className={styles.passwordConfirm}
-                        placeholder="Підтвердити пароль"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
                 </div>

@@ -11,7 +11,7 @@ const useAuth = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch('http://localhost:3000/api/v1/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -20,7 +20,8 @@ const useAuth = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Registration failed');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Registration failed');
             }
 
             const data = await response.json();
@@ -40,7 +41,7 @@ const useAuth = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('http://localhost:3000/api/v1/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,7 +121,28 @@ const useAuth = () => {
         }
     };
 
-    return { register, login, forgotPassword, resetPassword, loading, error, success };
+    const getUserData = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/user', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            throw error;
+        }
+    };
+
+    return { register, login, forgotPassword, resetPassword, loading, error, success, getUserData };
 };
 
 export default useAuth;

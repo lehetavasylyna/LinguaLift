@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const { register, login, forgotPassword, resetPassword, loading, error, success } = useAuth();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isRegistered, setIsRegistered] = useState(!!localStorage.getItem('token'));
+    const [user, setUser] = useState(null);
 
     const updateAuthStatus = (status) => {
         setIsRegistered(status);
@@ -25,12 +26,55 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('token');
         setIsRegistered(false);
         setIsAuthenticated(false);
+        setUser(null);
+    };
+
+    const loadUserProfile = async () => {
+        try {
+            const response = await fetch('/api/profile', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+            });
+            if (response.ok) {
+                const userData = await response.json();
+                setUser(userData);
+            } else {
+                console.error('Failed to load profile');
+            }
+        } catch (error) {
+            console.error('Error loading profile:', error);
+        }
+    };
+
+    const updateProfile = async (updatedData) => {
+        try {
+            const response = await fetch('/api/profile', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+                body: JSON.stringify(updatedData),
+            });
+
+            if (response.ok) {
+                const updatedUser = await response.json();
+                setUser(updatedUser);
+                return true;
+            } else {
+                console.error('Failed to update profile');
+                return false;
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            return false;
+        }
     };
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             setIsAuthenticated(true);
+            loadUserProfile();
         } else {
             setIsAuthenticated(false);
         }
@@ -50,6 +94,8 @@ export const AuthProvider = ({ children }) => {
                 success,
                 updateAuthStatus,
                 logout,
+                user,
+                loadUserProfile,
             }}
         >
             {children}

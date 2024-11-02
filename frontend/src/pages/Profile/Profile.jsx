@@ -1,13 +1,20 @@
 import styles from './Profile.module.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
+// import useAuth from '../../hooks/useAuth';
 
 function Profile() {
-    const { logout } = useAuthContext();
+    const { logout, user, loadUserProfile } = useAuthContext();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [showData, setShowData] = useState(false);
+
+    const handleShowData = () => {
+        setShowData(true);
+    };
 
     const handleLogout = async () => {
         try {
@@ -18,6 +25,20 @@ function Profile() {
         }
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                await loadUserProfile();
+            } catch (error) {
+                console.error('Error fetching user profile', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className={styles.profile}>
             <Header />
@@ -26,17 +47,15 @@ function Profile() {
                     <div className={styles.generalInfo}>
                         <img src="../../../assets/img/female.png" alt="Profile" />
                         <div className={styles.infoContainer}>
-                            <div className={styles.general}>Janny</div>
+                            <div className={styles.general}>{user?.name || 'User'}</div>
                             <div className={styles.general}>
-                                10/10/1999 <span>(25 years old)</span>
+                                {user?.dob || '10/10/1999'} <span>(25 years old)</span>
                             </div>
-                            <div className={styles.general}>Україна</div>
-
+                            <div className={styles.general}>{user?.country || 'Україна'}</div>
                             <div className={styles.knowledgmentInfo}>
-                                <div className={styles.knowledgment}>Рівень: С1</div>
-                                <div className={styles.knowledgment}>Загальний бал: 245</div>
+                                <div className={styles.knowledgment}>Рівень: {user?.level || 'C1'}</div>
+                                <div className={styles.knowledgment}>Загальний бал: {user?.score || 245}</div>
                             </div>
-
                             <div className={styles.btns}>
                                 <Link to="/profile/edit" className={styles.btn}>
                                     Редагувати профіль
