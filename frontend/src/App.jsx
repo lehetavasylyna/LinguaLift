@@ -14,6 +14,7 @@ import Tests from './pages/Lesson/Tests/Tests';
 import TestList from './pages/Lesson/TestListPage/TestList';
 import Header from './components/Header';
 import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
     const [isRegistered, setIsRegistered] = useState(false);
@@ -36,19 +37,17 @@ const App = () => {
                     {/* <ConditionalHeader /> */}
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/lessons" element={<Lessons />} />
-
-                        <Route path="/lessons/:id" element={<LessonHome />} />
-                        <Route path="/lessons/:id/tests" element={<TestList />} />
-                        <Route path="/lessons/:id/tests/:testId" element={<Tests />} />
-
+                        <Route path="/lessons" element={<ProtectedRoute element={<Lessons />} />} />
+                        <Route path="/lessons/:id" element={<ProtectedRoute element={<LessonHome />} />} />
+                        <Route path="/lessons/:id/tests" element={<ProtectedRoute element={<TestList />} />} />
+                        <Route path="/lessons/:id/tests/:testId" element={<ProtectedRoute element={<Tests />} />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/resetPassword" element={<ResetPassword />} />
                         <Route path="/forgotPassword" element={<ForgotPassword />} />
-                        <Route path="/profile/edit" element={<EditProfile />} />
-                        <Route path="/vocabulary" element={<UserVocabulary />} />
-                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/profile/edit" element={<ProtectedRoute element={<EditProfile />} />} />
+                        <Route path="/vocabulary" element={<ProtectedRoute element={<UserVocabulary />} />} />
+                        <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
                     </Routes>
                 </div>
             </Router>
