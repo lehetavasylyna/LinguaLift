@@ -58,6 +58,7 @@ const useAuth = () => {
             const token = data.token;
             localStorage.setItem('token', token);
             setSuccess(true);
+            setSuccess;
             return data;
         } catch (err) {
             setError(err.message);

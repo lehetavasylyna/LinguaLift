@@ -17,9 +17,9 @@ const Home = () => {
             case 'Easy':
                 return 5;
             case 'Medium':
-                return 8;
-            case 'Hard':
                 return 10;
+            case 'Hard':
+                return 15;
             default:
                 return 0;
         }
@@ -54,11 +54,11 @@ const Home = () => {
                 </div>
 
                 <div className={styles.lessonsContainer}>
-                    {[...Array(5)].map((_, index) => {
+                    {[...Array(4)].map((_, index) => {
                         const difficulty = index % 3 === 0 ? 'Easy' : index % 3 === 1 ? 'Medium' : 'Hard';
                         const points = getPointsForDifficulty(difficulty);
                         return (
-                            <Link to={`/lessons/${lessonId}`} key={index}>
+                            <Link to={'/lessons'} key={index}>
                                 <LessonCard
                                     className={styles.lessonsCard}
                                     title={`Урок ${index + 1}`}

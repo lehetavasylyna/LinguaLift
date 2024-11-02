@@ -7,17 +7,28 @@ export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
     const { register, login, forgotPassword, resetPassword, loading, error, success } = useAuth();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [isRegistered, setIsRegistered] = useState(!!localStorage.getItem('token'));
+    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
+    const [isRegistered, setIsRegistered] = useState(localStorage.getItem('token'));
     const [user, setUser] = useState(null);
 
     const updateAuthStatus = (status) => {
         setIsRegistered(status);
         if (status) {
-            localStorage.setItem('token', 'your_token_here');
+            //localStorage.setItem('token', 'your_token_here');
             setIsAuthenticated(true);
         } else {
             localStorage.removeItem('token');
+            setIsAuthenticated(false);
+        }
+    };
+
+    const initializedAuthStatus = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsAuthenticated(true);
+            //loadUserProfile();
+            console.log('Helloooooo, ', isAuthenticated);
+        } else {
             setIsAuthenticated(false);
         }
     };
@@ -71,18 +82,13 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsAuthenticated(true);
-            loadUserProfile();
-        } else {
-            setIsAuthenticated(false);
-        }
+        initializedAuthStatus();
     }, []);
 
     return (
         <AuthContext.Provider
             value={{
+                initializedAuthStatus,
                 isRegistered,
                 isAuthenticated,
                 register,

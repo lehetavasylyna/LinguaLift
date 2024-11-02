@@ -4,14 +4,9 @@ import styles from './Lessons.module.css';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import LessonCard from '../../components/LessonCard';
+import lessons from '../../../data/data-tests.json';
 
 function Lessons() {
-    const lessons = [
-        { id: 1, title: 'Articles a/an, the', difficulty: 'Easy', date: '2023-01-01', points: 5 },
-        { id: 2, title: 'Lesson 2', difficulty: 'Hard', date: '2023-02-01', points: 10 },
-        { id: 3, title: 'Lesson 3', difficulty: 'Medium', date: '2023-03-01', points: 8 },
-    ];
-
     const [searchQuery, setSearchQuery] = useState('');
     const [sortOption, setSortOption] = useState('newest');
 
@@ -61,7 +56,7 @@ function Lessons() {
                 <div className={styles.lessonsContainer}>
                     {filteredLessons.length > 0 ? (
                         filteredLessons.map((lesson) => (
-                            <Link key={lesson.id} to={`/lessons/${lesson.id}`}>
+                            <Link key={lesson.id} to={`/lessons/${lesson.id}/tests`}>
                                 <LessonCard
                                     title={lesson.title}
                                     difficulty={lesson.difficulty}

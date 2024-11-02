@@ -4,7 +4,9 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './Header.module.css';
 
 export const Header = () => {
-    const { isRegistered, logout } = useAuthContext();
+    const { isRegistered, isAuthenticated, logout } = useAuthContext();
+    console.log('isAuthenticated       ' + isAuthenticated);
+    //console.log('isRegistered       ' + isRegistered);
 
     return (
         <header className={styles.container}>
@@ -15,7 +17,7 @@ export const Header = () => {
                         Головна
                     </Link>
 
-                    {!isRegistered ? (
+                    {!isAuthenticated ? (
                         <>
                             <Link to="/login" className={styles.menuBtn}>
                                 Уроки
