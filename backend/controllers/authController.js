@@ -39,7 +39,7 @@ const createSendToken = (user, statusCode, res) => {
 
 exports.register = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);
-  // console.log(newUser);
+  console.log(req.body);
   createSendToken(newUser, 201, res);
 });
 
@@ -47,13 +47,13 @@ exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return next(new AppError('Please provide email and password!', 400));
+    return next(new AppError('Напишіть пошту і пароль!', 400));
   }
 
   const user = await User.findOne({ email: email }).select('+password');
 
   if (!user || !(await user.correctPassword(password, user.password))) {
-    return next(new AppError('Incorrect email or password', 401));
+    return next(new AppError('Неправильна пошта чи пароль', 401));
   }
 
   createSendToken(user, 200, res);
@@ -70,7 +70,10 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   if (!token) {
     return next(
-      new AppError('You are not logged in! Please log in to get access', 401),
+      new AppError(
+        'Ви не ввійшли в акаунт! Будь ласка, увійдіть, щоб отримати доступ',
+        401,
+      ),
     );
   }
 
@@ -80,13 +83,19 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   if (!currentUser) {
     return next(
-      new AppError('The user belonging to this token no longer exist!', 401),
+      new AppError(
+        'Користувач, який належить до цього токена, більше не існує!',
+        401,
+      ),
     );
   }
 
   if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
-      new AppError('User recently changed password! Please log in again!', 401),
+      new AppError(
+        'Користувач нещодавно змінив пароль! Будь ласка, увійдіть знову!',
+        401,
+      ),
     );
   }
 
@@ -97,7 +106,9 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return next(new AppError('There is no user with email address.', 404));
+    return next(
+      new AppError('Користувача з такою електронною поштою не існує.', 404),
+    );
   }
 
   const resetToken = user.createPasswordResetToken();
@@ -107,18 +118,18 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     'host',
   )}/api/v1/users/resetPassword/${resetToken}`;
 
-  const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
+  const message = `Забули свій пароль? Надішліть PATCH-запит з вашим новим паролем та підтвердженням пароля на: ${resetURL}.\nЯкщо ви не забули свій пароль, будь ласка, ігноруйте цей лист!`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: 'Your password reset token (valid for 10 min)',
+      subject: 'Ваш токен для скидання пароля (діє 10 хвилин)',
       message,
     });
 
     res.status(200).json({
       status: 'success',
-      message: 'Token sent to email!',
+      message: 'Токен надіслано на електронну пошту!',
     });
   } catch (err) {
     user.passwordResetToken = undefined;
@@ -127,8 +138,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     return next(
-      new AppError('There was an error sending the email. Try again later!'),
-      500,
+      new AppError(
+        'Виникла помилка при відправці електронного листа. Спробуйте ще раз пізніше!',
+        500,
+      ),
     );
   }
 });
@@ -145,7 +158,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(new AppError('Token is invalid or has expired', 400));
+    return next(new AppError('Токен недійсний або термін дії минув', 400));
   }
 
   user.password = req.body.password;
@@ -162,7 +175,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('+password');
 
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
-    return next(new AppError('Your current password is wrong!', 401));
+    return next(new AppError('Ваш поточний пароль неправильний!', 401));
   }
 
   user.password = req.body.password;

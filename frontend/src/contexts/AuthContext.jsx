@@ -38,10 +38,10 @@ export const AuthProvider = ({ children }) => {
                 const userData = await response.json();
                 setUser(userData);
             } else {
-                console.error('Failed to load profile');
+                console.error('Не вдалося завантажити профіль');
             }
         } catch (error) {
-            console.error('Error loading profile:', error);
+            console.error('Помилка при завантаженні профілю:', error);
         }
     };
 
@@ -61,11 +61,11 @@ export const AuthProvider = ({ children }) => {
                 setUser(updatedUser);
                 return true;
             } else {
-                console.error('Failed to update profile');
+                console.error('Не вдалося оновити профіль');
                 return false;
             }
         } catch (error) {
-            console.error('Error updating profile:', error);
+            console.error('Помилка при оновленні профілю:', error);
             return false;
         }
     };

@@ -7,29 +7,60 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   userName: {
     type: String,
-    required: [true, 'Please tell us your user name'],
+    required: [true, 'Будь ласка, вкажіть ваше ім’я користувача'],
   },
   email: {
     type: String,
-    required: [true, 'Please tell us your email'],
+    required: [true, 'Будь ласка, вкажіть вашу електронну пошту'],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email'],
+    validate: [
+      validator.isEmail,
+      'Будь ласка, надайте правильну електронну пошту',
+    ],
   },
   password: {
     type: String,
-    required: [true, 'Please provide a password'],
+    required: [true, 'Будь ласка, надайте пароль'],
     minlength: 8,
     select: false,
   },
   passwordConfirm: {
     type: String,
-    required: [true, 'Please confirm your password'],
+    required: [true, 'Будь ласка, підтвердіть ваш пароль'],
     validate: {
       validator: function (el) {
         return el === this.password;
       },
-      message: 'Password are not the same',
+      message: 'Паролі не співпадають',
+    },
+  },
+  gender: {
+    type: String,
+    required: [true, 'Користувач повинен вказати стать'],
+    enum: {
+      values: ['Жіноча', 'Чоловіча'],
+      message: 'Стать на вибір: Чоловік, Жінка',
+    },
+  },
+
+  birthDate: {
+    type: Date,
+    default: Date.now(),
+  },
+  country: {
+    type: String,
+    required: [true, 'Будь ласка, вкажіть вашу країну'],
+    enum: {
+      values: ['Україна', 'Німеччина', 'Польща', 'США', 'Франція'],
+      message: 'Країни на вибір: Україна, Німеччина, США, Франція, Польща',
+    },
+  },
+  englishLevel: {
+    type: String,
+    required: [true, 'Будь ласка, вкажіть ваш рівень англійської'],
+    enum: {
+      values: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
     },
   },
   passwordChangedAt: Date,

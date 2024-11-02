@@ -21,14 +21,14 @@ const useAuth = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || 'Registration failed');
+                throw new Error(errorData.message || 'Реєстрація не вдалася');
             }
 
             const data = await response.json();
             setSuccess(true);
             return data;
         } catch (err) {
-            console.error('Registration error:', err);
+            console.error('Помилка реєстрації:', err);
             setError(err);
         } finally {
             setLoading(false);
@@ -50,7 +50,8 @@ const useAuth = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Login failed');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Вхід не вдався');
             }
 
             const data = await response.json();
@@ -59,7 +60,8 @@ const useAuth = () => {
             setSuccess(true);
             return data;
         } catch (err) {
-            setError(err);
+            setError(err.message);
+            throw err;
         } finally {
             setLoading(false);
         }
@@ -80,7 +82,7 @@ const useAuth = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Error sending password reset email');
+                throw new Error('Помилка при відправці електронного листа для скидання пароля');
             }
 
             const data = await response.json();
@@ -108,7 +110,7 @@ const useAuth = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Error resetting password');
+                throw new Error('Помилка при скиданні пароля');
             }
 
             const data = await response.json();
@@ -131,13 +133,13 @@ const useAuth = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch user data');
+                throw new Error('Не вдалося отримати дані користувача');
             }
 
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('Error fetching user data:', error);
+            console.error('Помилка при отриманні даних користувача:', error);
             throw error;
         }
     };

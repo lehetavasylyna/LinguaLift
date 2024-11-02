@@ -1,27 +1,27 @@
-const AppError = require("./../utils/appError");
+const AppError = require('./../utils/appError');
 
 const handleCastErrorDB = (err) => {
-  const message = `Invalid ${err.path}: ${err.value}`;
+  const message = `Неправильний ${err.path}: ${err.value}`;
   return new AppError(message, 400);
 };
 
 const handleDuplicateFieldsDB = (err) => {
   const value = err.keyValue.name;
-  const message = `Duplicate field value: "${value}". Please use another value!`;
+  const message = `Значення поля вже існує: "${value}". Будь ласка, використайте інше значення!`;
   return new AppError(message, 400);
 };
 
 const handleValidationErrorDB = (err) => {
   const errors = Object.values(err.errors).map((el) => el.message);
-  const message = `Invalid input data. ${errors.join(". ")}`;
+  const message = `Неправильні дані вводу. ${errors.join('. ')}`;
   return new AppError(message, 400);
 };
 
 const handleJWTError = () =>
-  new AppError("Invalid token. Please log in again!", 401);
+  new AppError('Неправильний токен. Будь ласка, увійдіть знову!', 401);
 
 const handleJWTExpiredError = () =>
-  new AppError("Your token has expired! Please log in again!", 401);
+  new AppError('Ваш токен закінчився! Будь ласка, увійдіть знову!', 401);
 
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
@@ -39,30 +39,30 @@ const sendErrorProd = (err, res) => {
       message: err.message,
     });
   } else {
-    console.error("ERROR !!! ", err);
+    console.error('ПОМИЛКА !!! ', err);
 
     res.status(500).json({
-      status: "error",
-      message: "Something went very wrong",
+      status: 'error',
+      message: 'Щось пішло дуже не так',
     });
   }
 };
 
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
-  err.status = err.status || "error";
+  err.status = err.status || 'error';
 
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
-  } else if (process.env.NODE_ENV === "production") {
+  } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
 
-    if (err.name === "CastError") error = handleCastErrorDB(error);
+    if (err.name === 'CastError') error = handleCastErrorDB(error);
     if (err.code === 11000) error = handleDuplicateFieldsDB(error);
-    if (err.name === "ValidationError") error = handleValidationErrorDB(error);
+    if (err.name === 'ValidationError') error = handleValidationErrorDB(error);
 
-    if (err.name === "JsonWebTokenError") error = handleJWTError();
-    if (err.name === "TokenExpiredError") error = handleJWTExpiredError();
+    if (err.name === 'JsonWebTokenError') error = handleJWTError();
+    if (err.name === 'TokenExpiredError') error = handleJWTExpiredError();
 
     sendErrorProd(error, res);
   }

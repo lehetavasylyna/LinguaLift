@@ -7,24 +7,39 @@ import { useNavigate } from 'react-router-dom';
 export const LoginComp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login, loading, error, success } = useAuth();
+    const { login, loading } = useAuth();
     const { updateAuthStatus } = useAuthContext();
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
+    const [attempts, setAttempts] = useState(0);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setErrorMessage('');
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setErrorMessage('Введіть дійсну електронну пошту');
+            return;
+        }
+
         const userData = { email, password };
+
         try {
-            await login(userData);
+            const user = await login(userData);
             updateAuthStatus(true);
             setEmail('');
             setPassword('');
+            setAttempts(0);
             navigate('/lessons');
         } catch (err) {
-            setErrorMessage(err.response ? err.response.data.message : 'Something went wrong');
+            setAttempts((prev) => prev + 1);
+            setErrorMessage(err.message || 'Щось пішло не так');
+            setEmail('');
+
+            if (attempts >= 2) {
+                setErrorMessage('Немає акаунта? Зареєструйтеся.');
+            }
         }
     };
 
