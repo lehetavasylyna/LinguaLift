@@ -12,8 +12,8 @@ export const RegisterComp = ({ isRegistration }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [gender, setGender] = useState('');
     const [birthDate, setBirthDate] = useState('');
-    const [country, setCountry] = useState('ukraine');
-    const [englishLevel, setEnglishLevel] = useState('a1');
+    const [country, setCountry] = useState('Україна');
+    const [englishLevel, setEnglishLevel] = useState('A1');
     const { register, loading } = useAuth();
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
@@ -66,6 +66,10 @@ export const RegisterComp = ({ isRegistration }) => {
             setEmail('');
             setPassword('');
             setUserName('');
+            setGender('');
+            setBirthDate('');
+            setCountry('');
+            setEnglishLevel('');
             setConfirmPassword('');
             navigate('/lessons');
         } catch (error) {
@@ -144,8 +148,8 @@ export const RegisterComp = ({ isRegistration }) => {
                             Стать:
                             <select value={gender} onChange={(e) => setGender(e.target.value)} required>
                                 <option value="">Оберіть стать</option>
-                                <option value="male">Чоловіча</option>
-                                <option value="female">Жіноча</option>
+                                <option value="Чоловіча">Чоловіча</option>
+                                <option value="Жіноча">Жіноча</option>
                             </select>
                         </label>
                     </div>
@@ -162,11 +166,11 @@ export const RegisterComp = ({ isRegistration }) => {
                         <label>
                             Країна:
                             <select value={country} onChange={(e) => setCountry(e.target.value)} required>
-                                <option value="ukraine">Україна</option>
-                                <option value="poland">Польща</option>
-                                <option value="germany">Німеччина</option>
-                                <option value="usa">США</option>
-                                <option value="france">Франція</option>
+                                <option value="Україна">Україна</option>
+                                <option value="Польща">Польща</option>
+                                <option value="Німеччина">Німеччина</option>
+                                <option value="США">США</option>
+                                <option value="Франція">Франція</option>
                             </select>
                         </label>
                     </div>
@@ -174,12 +178,12 @@ export const RegisterComp = ({ isRegistration }) => {
                         <label>
                             Рівень знань англійської:
                             <select value={englishLevel} onChange={(e) => setEnglishLevel(e.target.value)} required>
-                                <option value="a1">A1 (Початковий)</option>
-                                <option value="a2">A2 (Елементарний)</option>
-                                <option value="b1">B1 (Середній)</option>
-                                <option value="b2">B2 (Вище середнього)</option>
-                                <option value="c1">C1 (Вищий)</option>
-                                <option value="c2">C2 (Досвідчений)</option>
+                                <option value="A1">A1 (Початковий)</option>
+                                <option value="A2">A2 (Елементарний)</option>
+                                <option value="B1">B1 (Середній)</option>
+                                <option value="B2">B2 (Вище середнього)</option>
+                                <option value="C1">C1 (Вищий)</option>
+                                <option value="C2">C2 (Досвідчений)</option>
                             </select>
                         </label>
                     </div>

@@ -5,8 +5,8 @@ import styles from './Header.module.css';
 
 export const Header = () => {
     const { isRegistered, isAuthenticated, logout } = useAuthContext();
-    console.log('isAuthenticated       ' + isAuthenticated);
-    //console.log('isRegistered       ' + isRegistered);
+    console.log('isRegistered:   ' + isRegistered);
+    console.log('isAuthenticated:   ' + isAuthenticated);
 
     return (
         <header className={styles.container}>

@@ -4,17 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
-// import useAuth from '../../hooks/useAuth';
 
 function Profile() {
     const { logout, user, loadUserProfile } = useAuthContext();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
-    const [showData, setShowData] = useState(false);
-
-    const handleShowData = () => {
-        setShowData(true);
-    };
 
     const handleLogout = async () => {
         try {
@@ -37,7 +31,11 @@ function Profile() {
             }
         };
         fetchData();
-    }, []);
+    }, [loadUserProfile]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className={styles.profile}>
@@ -49,7 +47,7 @@ function Profile() {
                         <div className={styles.infoContainer}>
                             <div className={styles.general}>{user?.name || 'User'}</div>
                             <div className={styles.general}>
-                                {user?.dob || '10/10/1999'} <span>(25 years old)</span>
+                                {user?.dob || '10/10/1999'} <span>({user?.age || '25'} years old)</span>
                             </div>
                             <div className={styles.general}>{user?.country || 'Україна'}</div>
                             <div className={styles.knowledgmentInfo}>
@@ -57,9 +55,6 @@ function Profile() {
                                 <div className={styles.knowledgment}>Загальний бал: {user?.score || 245}</div>
                             </div>
                             <div className={styles.btns}>
-                                <Link to="/profile/edit" className={styles.btn}>
-                                    Редагувати профіль
-                                </Link>
                                 <button className={styles.btn} onClick={handleLogout}>
                                     Вийти
                                 </button>

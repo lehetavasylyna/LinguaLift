@@ -68,62 +68,6 @@ const useAuth = () => {
         }
     };
 
-    const forgotPassword = async (email) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
-        try {
-            const response = await fetch('http://localhost:3000/forgotPassword', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Помилка при відправці електронного листа для скидання пароля');
-            }
-
-            const data = await response.json();
-            setSuccess(true);
-            return data;
-        } catch (err) {
-            setError(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const resetPassword = async (token, newPassword) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
-        try {
-            const response = await fetch(`http://localhost:3000/reset-password/${token}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ password: newPassword }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Помилка при скиданні пароля');
-            }
-
-            const data = await response.json();
-            setSuccess(true);
-            return data;
-        } catch (err) {
-            setError(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     const getUserData = async () => {
         try {
             const response = await fetch('http://localhost:3000/user', {
@@ -145,7 +89,7 @@ const useAuth = () => {
         }
     };
 
-    return { register, login, forgotPassword, resetPassword, loading, error, success, getUserData };
+    return { register, login, loading, error, success, getUserData };
 };
 
 export default useAuth;

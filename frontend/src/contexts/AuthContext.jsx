@@ -7,28 +7,23 @@ export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
     const { register, login, forgotPassword, resetPassword, loading, error, success } = useAuth();
-    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
-    const [isRegistered, setIsRegistered] = useState(localStorage.getItem('token'));
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(!!localStorage.getItem('token'));
     const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
 
     const updateAuthStatus = (status) => {
         setIsRegistered(status);
         if (status) {
-            //localStorage.setItem('token', 'your_token_here');
             setIsAuthenticated(true);
         } else {
             localStorage.removeItem('token');
-            setIsAuthenticated(false);
-        }
-    };
-
-    const initializedAuthStatus = () => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsAuthenticated(true);
-            //loadUserProfile();
-            console.log('Helloooooo, ', isAuthenticated);
-        } else {
             setIsAuthenticated(false);
         }
     };
@@ -42,18 +37,24 @@ export const AuthProvider = ({ children }) => {
 
     const loadUserProfile = async () => {
         try {
-            const response = await fetch('/api/profile', {
+            const response = await fetch('http://localhost:3000/api/v1/users/me', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
             });
-            if (response.ok) {
-                const userData = await response.json();
-                setUser(userData);
-            } else {
-                console.error('Не вдалося завантажити профіль');
+            if (!response.ok) {
+                console.log(response);
+                const errorData = await response.json();
+                console.error('Не вдалося завантажити профіль', errorData);
+                return;
             }
+
+            const userData = await response.json();
+            setUser(userData);
+            console.log('Second     ' + user);
         } catch (error) {
             console.error('Помилка при завантаженні профілю:', error);
         }
+
+        console.log('First     ' + user);
     };
 
     const updateProfile = async (updatedData) => {
@@ -81,14 +82,19 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    useEffect(() => {
-        initializedAuthStatus();
-    }, []);
+    // useEffect(() => {
+    //     const token = localStorage.getItem('token');
+    //     if (token) {
+    //         setIsAuthenticated(true);
+    //         loadUserProfile();
+    //     } else {
+    //         setIsAuthenticated(false);
+    //     }
+    // }, []);
 
     return (
         <AuthContext.Provider
             value={{
-                initializedAuthStatus,
                 isRegistered,
                 isAuthenticated,
                 register,

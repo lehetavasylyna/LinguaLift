@@ -47,6 +47,7 @@ const userSchema = new mongoose.Schema({
   birthDate: {
     type: Date,
     default: Date.now(),
+    required: [true, 'Будь ласка, укажіть дату народження'],
   },
   country: {
     type: String,

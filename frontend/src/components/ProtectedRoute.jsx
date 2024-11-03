@@ -3,11 +3,11 @@ import { Navigate } from 'react-router-dom';
 import { useAuthContext } from '../contexts/AuthContext';
 
 const ProtectedRoute = ({ element }) => {
-    const { isAuthenticated, initializedAuthStatus } = useAuthContext();
-    //isAuthenticated = true;
-    useEffect(() => {
-        initializedAuthStatus();
-    }, []);
+    const { isAuthenticated } = useAuthContext();
+    // const { isAuthenticated, initializedAuthStatus } = useAuthContext();
+    // useEffect(() => {
+    //     initializedAuthStatus();
+    // }, []);
 
     console.log(isAuthenticated);
 

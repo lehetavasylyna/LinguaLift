@@ -12,6 +12,7 @@ const lessonRouter = require('./routes/lessonRoutes');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();
+app.use(express.json());
 
 app.use(bodyParser.json());
 app.use(cors());

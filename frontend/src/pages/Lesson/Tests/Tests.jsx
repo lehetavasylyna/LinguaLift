@@ -8,60 +8,41 @@ import { Header } from '../../../components/Header';
 import { TestPage } from '../../../components/TestPage';
 
 function Tests() {
-    const { id } = useParams();
+    const { id, testId } = useParams();
     const lessonId = parseInt(id);
+    const selectedTestId = parseInt(testId);
 
-    const generateTestData = (tests, lessonId) => {
-        const testData = [];
+    const generateTestData = (tests, lessonId, testIndex) => {
         const lesson = tests.find((lesson) => lesson.id === lessonId);
-
-        if (lesson) {
-            for (let i = 1; i <= lesson.number_of_tests; i++) {
-                const attempts = Array.from({ length: 3 }, () => {
-                    const outcomes = ['success', 'fail', 'notAttempted'];
-                    return outcomes[Math.floor(Math.random() * outcomes.length)];
-                });
-
-                testData.push({
-                    name: `Test ${i} of ${lesson.title}`,
-                    attempts: attempts,
-                });
-            }
+        if (lesson && lesson.tests && lesson.tests[testIndex]) {
+            const selectedTest = lesson.tests[testIndex];
+            return {
+                name: `Test ${testIndex + 1} of ${lesson.title}`,
+                questions: selectedTest.map((q) => ({
+                    question: q.question.replace(/__/, '___'),
+                    options: q.options,
+                    correctAnswer: q.correctAnswer,
+                })),
+            };
         }
-
-        return testData;
+        return null;
     };
 
-    const transformData = (lesson) => {
-        const questions = [];
-
-        if (lesson.tests) {
-            lesson.tests.forEach((test) => {
-                test.forEach((q) => {
-                    questions.push({
-                        question: q.question.replace(/__/, '___'),
-                        options: q.options,
-                        correctAnswer: q.correctAnswer,
-                    });
-                });
-            });
-        }
-
-        return questions;
-    };
-
-    const lesson = tests.find((lesson) => lesson.id === lessonId);
-    const questions = lesson ? transformData(lesson) : [];
+    const testData = generateTestData(tests, lessonId, selectedTestId);
 
     return (
         <div className={styles.tests}>
             <Header />
             <div className={styles.content}>
                 <div className={styles.mainContent}>
-                    <TestPage
-                        questions={questions}
-                        onSubmit={(answers) => console.log('Submitted answers:', answers)}
-                    />
+                    {testData ? (
+                        <TestPage
+                            questions={testData.questions}
+                            onSubmit={(answers) => console.log('Submitted answers:', answers)}
+                        />
+                    ) : (
+                        <p>No test found.</p>
+                    )}
                 </div>
             </div>
             <Footer />
