@@ -11,15 +11,6 @@ function Profile() {
     const navigate = useNavigate();
     const { logout } = useAuth();
 
-    const handleInputChange = (event) => {
-        console.log('HANDLE: ', event.target);
-        const { name, value } = event.target;
-        setUser((prevUser) => ({
-            ...prevUser,
-            [name]: value,
-        }));
-    };
-
     const handleLogout = async () => {
         try {
             await logout();
@@ -40,23 +31,17 @@ function Profile() {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch user? data');
+                throw new Error('Failed to fetch user data');
             }
 
             const data = await response.json();
             setUser(data);
         } catch (error) {
-            console.error('Error fetching user? data:', error);
+            console.error('Error fetching user data:', error);
         } finally {
-            setLoading(false); // Set loading to false after fetching
+            setLoading(false);
         }
     };
-
-    useEffect(() => {
-        if (user && user.userName) {
-            console.log('USER: ', user);
-        }
-    }, [user]);
 
     useEffect(() => {
         loadUserData();
@@ -72,45 +57,22 @@ function Profile() {
             <div className={styles.contentContainer}>
                 <div className={styles.mainContent}>
                     <div className={styles.generalInfo}>
-                        <img src="../../../assets/img/female.png" alt="Profile" />
+                        <img src="../../../assets/img/male.png" alt="Profile" />
                         <div className={styles.infoContainer}>
                             <input
                                 className={styles.general}
                                 name="userName"
-                                onChange={handleInputChange}
-                                value={user?.userName || ''}
+                                value={user.userName || ''}
                                 placeholder="Name"
+                                readOnly
                             />
                             <input
                                 className={styles.general}
-                                name="birthDate"
-                                onChange={handleInputChange}
-                                value={user?.birthDate || ''}
-                                placeholder="Date of Birth"
+                                name="email"
+                                value={user.email || ''}
+                                placeholder="Email"
+                                readOnly
                             />
-                            <input
-                                className={styles.general}
-                                name="country"
-                                onChange={handleInputChange}
-                                value={user?.country || ''}
-                                placeholder="Country"
-                            />
-                            <div className={styles.knowledgmentInfo}>
-                                <input
-                                    className={styles.knowledgment}
-                                    name="level"
-                                    onChange={handleInputChange}
-                                    value={user?.level || ''}
-                                    placeholder="Level"
-                                />
-                                <input
-                                    className={styles.knowledgment}
-                                    name="score"
-                                    onChange={handleInputChange}
-                                    value={user?.score || ''}
-                                    placeholder="Score"
-                                />
-                            </div>
                             <div className={styles.btns}>
                                 <button className={styles.btn} onClick={handleLogout}>
                                     Вийти
