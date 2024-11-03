@@ -1,0 +1,708 @@
+[
+    {
+        "id": 1,
+        "title": "Present Simple Tense",
+        "difficulty": "Easy",
+        "date": "2024-01-01",
+        "points": 5,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "She __ (go) to school every day.",
+                    "options": ["goes", "going", "go", "gone"],
+                    "correctAnswer": "goes"
+                },
+                {
+                    "question": "They __ (play) soccer on weekends.",
+                    "options": ["play", "plays", "playing", "played"],
+                    "correctAnswer": "play"
+                },
+                {
+                    "question": "He __ (not like) broccoli.",
+                    "options": ["does not like", "not likes", "does like", "not like"],
+                    "correctAnswer": "does not like"
+                },
+                {
+                    "question": "We __ (have) a cat.",
+                    "options": ["have", "has", "having", "had"],
+                    "correctAnswer": "have"
+                },
+                {
+                    "question": "I __ (not eat) breakfast in the morning.",
+                    "options": ["do not eat", "not eat", "did not eat", "eating"],
+                    "correctAnswer": "do not eat"
+                }
+            ],
+            [
+                {
+                    "question": "You __ (read) a book.",
+                    "options": ["read", "reads", "reading", "readed"],
+                    "correctAnswer": "read"
+                },
+                {
+                    "question": "She __ (not watch) TV often.",
+                    "options": ["does not watch", "not watches", "did not watch", "watch"],
+                    "correctAnswer": "does not watch"
+                },
+                {
+                    "question": "They __ (walk) to the park.",
+                    "options": ["walk", "walking", "walked", "walks"],
+                    "correctAnswer": "walk"
+                },
+                {
+                    "question": "He __ (study) English.",
+                    "options": ["studies", "study", "studying", "studied"],
+                    "correctAnswer": "studies"
+                },
+                {
+                    "question": "We __ (not go) out tonight.",
+                    "options": ["do not go", "not go", "did not go", "go"],
+                    "correctAnswer": "do not go"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Past Simple Tense",
+        "difficulty": "Easy",
+        "date": "2024-02-01",
+        "points": 5,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "I __ (play) football yesterday.",
+                    "options": ["played", "play", "playing", "plays"],
+                    "correctAnswer": "played"
+                },
+                {
+                    "question": "She __ (go) to the market last week.",
+                    "options": ["went", "go", "going", "gone"],
+                    "correctAnswer": "went"
+                },
+                {
+                    "question": "They __ (not eat) pizza last night.",
+                    "options": ["did not eat", "not eat", "not ate", "eating"],
+                    "correctAnswer": "did not eat"
+                },
+                {
+                    "question": "He __ (visit) his grandparents last summer.",
+                    "options": ["visited", "visit", "visiting", "visits"],
+                    "correctAnswer": "visited"
+                },
+                {
+                    "question": "We __ (not watch) that movie.",
+                    "options": ["did not watch", "not watched", "not watch", "watched"],
+                    "correctAnswer": "did not watch"
+                }
+            ],
+            [
+                {
+                    "question": "You __ (not finish) your homework.",
+                    "options": ["did not finish", "not finish", "not finished", "finishing"],
+                    "correctAnswer": "did not finish"
+                },
+                {
+                    "question": "I __ (go) to the gym last week.",
+                    "options": ["went", "go", "going", "gone"],
+                    "correctAnswer": "went"
+                },
+                {
+                    "question": "She __ (call) me yesterday.",
+                    "options": ["called", "call", "calling", "calls"],
+                    "correctAnswer": "called"
+                },
+                {
+                    "question": "They __ (not play) outside.",
+                    "options": ["did not play", "not played", "not play", "playing"],
+                    "correctAnswer": "did not play"
+                },
+                {
+                    "question": "We __ (have) a great time.",
+                    "options": ["had", "have", "having", "has"],
+                    "correctAnswer": "had"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Future Simple Tense",
+        "difficulty": "Easy",
+        "date": "2023-03-01",
+        "points": 5,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "I __ (go) to the market tomorrow.",
+                    "options": ["will go", "go", "went", "gone"],
+                    "correctAnswer": "will go"
+                },
+                {
+                    "question": "They __ (not finish) their project next week.",
+                    "options": ["will not finish", "not finished", "will not finishes", "not finish"],
+                    "correctAnswer": "will not finish"
+                },
+                {
+                    "question": "She __ (help) me with my homework.",
+                    "options": ["will help", "help", "helping", "helped"],
+                    "correctAnswer": "will help"
+                },
+                {
+                    "question": "We __ (not go) to the beach next summer.",
+                    "options": ["will not go", "will not gone", "not go", "did not go"],
+                    "correctAnswer": "will not go"
+                },
+                {
+                    "question": "He __ (visit) us next month.",
+                    "options": ["will visit", "visit", "visited", "visiting"],
+                    "correctAnswer": "will visit"
+                }
+            ],
+            [
+                {
+                    "question": "I __ (not eat) dinner at the restaurant tomorrow.",
+                    "options": ["will not eat", "not eat", "did not eat", "not ate"],
+                    "correctAnswer": "will not eat"
+                },
+                {
+                    "question": "They __ (go) on vacation next year.",
+                    "options": ["will go", "will gone", "will going", "went"],
+                    "correctAnswer": "will go"
+                },
+                {
+                    "question": "She __ (not play) the piano anymore.",
+                    "options": ["will not play", "not play", "did not play", "not played"],
+                    "correctAnswer": "will not play"
+                },
+                {
+                    "question": "We __ (study) for the exam next week.",
+                    "options": ["will study", "studied", "study", "studies"],
+                    "correctAnswer": "will study"
+                },
+                {
+                    "question": "He __ (call) you tomorrow.",
+                    "options": ["will call", "call", "called", "calling"],
+                    "correctAnswer": "will call"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Simple Questions",
+        "difficulty": "Easy",
+        "date": "2023-04-01",
+        "points": 5,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "Where __ (you / go) yesterday?",
+                    "options": ["did you go", "do you go", "you go", "you went"],
+                    "correctAnswer": "did you go"
+                },
+                {
+                    "question": "What __ (he / eat) for lunch?",
+                    "options": ["did he eat", "does he eat", "he ate", "he eats"],
+                    "correctAnswer": "did he eat"
+                },
+                {
+                    "question": "When __ (they / arrive)?",
+                    "options": ["did they arrive", "do they arrive", "they arrived", "they arrive"],
+                    "correctAnswer": "did they arrive"
+                },
+                {
+                    "question": "Why __ (she / not come)?",
+                    "options": ["did she not come", "does she not come", "she did not come", "she not came"],
+                    "correctAnswer": "did she not come"
+                },
+                {
+                    "question": "How __ (you / feel) today?",
+                    "options": ["do you feel", "did you feel", "you felt", "you feel"],
+                    "correctAnswer": "do you feel"
+                }
+            ],
+            [
+                {
+                    "question": "Who __ (he / talk) to last night?",
+                    "options": ["did he talk", "does he talk", "he talked", "he talks"],
+                    "correctAnswer": "did he talk"
+                },
+                {
+                    "question": "What __ (they / do) yesterday?",
+                    "options": ["did they do", "do they do", "they did", "they do"],
+                    "correctAnswer": "did they do"
+                },
+                {
+                    "question": "Where __ (we / meet)?",
+                    "options": ["did we meet", "do we meet", "we did meet", "we meet"],
+                    "correctAnswer": "did we meet"
+                },
+                {
+                    "question": "How long __ (she / wait) for you?",
+                    "options": ["did she wait", "does she wait", "she waited", "she waits"],
+                    "correctAnswer": "did she wait"
+                },
+                {
+                    "question": "When __ (you / finish) your work?",
+                    "options": ["did you finish", "do you finish", "you finished", "you finish"],
+                    "correctAnswer": "did you finish"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Basic Vocabulary",
+        "difficulty": "Easy",
+        "date": "2023-05-01",
+        "points": 5,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "What is the opposite of 'hot'?",
+                    "options": ["cold", "warm", "cool", "freezing"],
+                    "correctAnswer": "cold"
+                },
+                {
+                    "question": "What do you call a person who writes books?",
+                    "options": ["author", "artist", "teacher", "doctor"],
+                    "correctAnswer": "author"
+                },
+                {
+                    "question": "What is the capital of France?",
+                    "options": ["Paris", "London", "Berlin", "Madrid"],
+                    "correctAnswer": "Paris"
+                },
+                {
+                    "question": "What is the opposite of 'happy'?",
+                    "options": ["sad", "angry", "excited", "bored"],
+                    "correctAnswer": "sad"
+                },
+                {
+                    "question": "What is a synonym for 'fast'?",
+                    "options": ["quick", "slow", "steady", "lazy"],
+                    "correctAnswer": "quick"
+                }
+            ],
+            [
+                {
+                    "question": "What do you call a baby cat?",
+                    "options": ["kitten", "puppy", "cub", "calf"],
+                    "correctAnswer": "kitten"
+                },
+                {
+                    "question": "What is the opposite of 'big'?",
+                    "options": ["small", "large", "huge", "enormous"],
+                    "correctAnswer": "small"
+                },
+                {
+                    "question": "What do you call a place where you can borrow books?",
+                    "options": ["library", "bookstore", "school", "office"],
+                    "correctAnswer": "library"
+                },
+                {
+                    "question": "What is the capital of Japan?",
+                    "options": ["Tokyo", "Beijing", "Seoul", "Bangkok"],
+                    "correctAnswer": "Tokyo"
+                },
+                {
+                    "question": "What is a synonym for 'difficult'?",
+                    "options": ["hard", "easy", "simple", "clear"],
+                    "correctAnswer": "hard"
+                }
+            ]
+        ]
+    },
+
+    {
+        "id": 6,
+        "title": "Conditional Sentences",
+        "difficulty": "Medium",
+        "date": "2024-06-01",
+        "points": 10,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "If it rains, we __ (stay) home.",
+                    "options": ["will stay", "stayed", "stay", "stays"],
+                    "correctAnswer": "will stay"
+                },
+                {
+                    "question": "If I were you, I __ (not do) that.",
+                    "options": ["would not do", "will not do", "did not do", "do not do"],
+                    "correctAnswer": "would not do"
+                },
+                {
+                    "question": "If he calls, I __ (answer) it.",
+                    "options": ["will answer", "answered", "answer", "answers"],
+                    "correctAnswer": "will answer"
+                },
+                {
+                    "question": "If they had known, they __ (help) us.",
+                    "options": ["would have helped", "helped", "will help", "would help"],
+                    "correctAnswer": "would have helped"
+                },
+                {
+                    "question": "If she __ (study) harder, she would pass.",
+                    "options": ["studied", "study", "will study", "would study"],
+                    "correctAnswer": "studied"
+                }
+            ],
+            [
+                {
+                    "question": "If I see him, I __ (tell) him.",
+                    "options": ["will tell", "told", "tell", "telling"],
+                    "correctAnswer": "will tell"
+                },
+                {
+                    "question": "If you heat ice, it __ (melt).",
+                    "options": ["melts", "melted", "will melt", "melting"],
+                    "correctAnswer": "melts"
+                },
+                {
+                    "question": "If she __ (not go) to the party, I won’t go either.",
+                    "options": ["does not go", "did not go", "not go", "will not go"],
+                    "correctAnswer": "does not go"
+                },
+                {
+                    "question": "If we had more time, we __ (travel) more.",
+                    "options": ["would travel", "travel", "will travel", "would have traveled"],
+                    "correctAnswer": "would travel"
+                },
+                {
+                    "question": "If they had arrived earlier, they __ (meet) him.",
+                    "options": ["would have met", "met", "will meet", "meet"],
+                    "correctAnswer": "would have met"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Phrasal Verbs",
+        "difficulty": "Medium",
+        "date": "2023-07-01",
+        "points": 10,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "She __ (give up) smoking.",
+                    "options": ["gave up", "give up", "giving up", "will give up"],
+                    "correctAnswer": "gave up"
+                },
+                {
+                    "question": "I need to __ (pick up) my friend.",
+                    "options": ["pick up", "picked up", "picking up", "pick"],
+                    "correctAnswer": "pick up"
+                },
+                {
+                    "question": "He __ (look after) his little brother.",
+                    "options": ["looks after", "looked after", "looking after", "look after"],
+                    "correctAnswer": "looks after"
+                },
+                {
+                    "question": "They __ (find out) the truth.",
+                    "options": ["found out", "find out", "finding out", "find"],
+                    "correctAnswer": "found out"
+                },
+                {
+                    "question": "Can you __ (turn off) the lights?",
+                    "options": ["turn off", "turned off", "turning off", "turn"],
+                    "correctAnswer": "turn off"
+                }
+            ],
+            [
+                {
+                    "question": "We need to __ (give back) the books.",
+                    "options": ["give back", "gave back", "giving back", "give"],
+                    "correctAnswer": "give back"
+                },
+                {
+                    "question": "She __ (take care of) her pets.",
+                    "options": ["takes care of", "taking care of", "took care of", "take care of"],
+                    "correctAnswer": "takes care of"
+                },
+                {
+                    "question": "He __ (run into) an old friend.",
+                    "options": ["ran into", "run into", "running into", "runs into"],
+                    "correctAnswer": "ran into"
+                },
+                {
+                    "question": "I will __ (look for) my keys.",
+                    "options": ["look for", "looked for", "looking for", "look"],
+                    "correctAnswer": "look for"
+                },
+                {
+                    "question": "They __ (bring up) an interesting topic.",
+                    "options": ["brought up", "bring up", "bringing up", "bring"],
+                    "correctAnswer": "brought up"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Reported Speech",
+        "difficulty": "Medium",
+        "date": "2023-08-01",
+        "points": 10,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "She said, 'I __ (be) happy.'",
+                    "options": ["was", "is", "were", "be"],
+                    "correctAnswer": "was"
+                },
+                {
+                    "question": "He told me, 'I __ (go) to the party.'",
+                    "options": ["was going", "is going", "go", "went"],
+                    "correctAnswer": "was going"
+                },
+                {
+                    "question": "They said, 'We __ (not understand) the lesson.'",
+                    "options": ["did not understand", "not understand", "understood", "do not understand"],
+                    "correctAnswer": "did not understand"
+                },
+                {
+                    "question": "She asked, 'Do you __ (know) the answer?'",
+                    "options": ["knew", "know", "knows", "was knowing"],
+                    "correctAnswer": "knew"
+                },
+                {
+                    "question": "He said, 'I __ (see) her yesterday.'",
+                    "options": ["saw", "seen", "see", "was seeing"],
+                    "correctAnswer": "saw"
+                }
+            ],
+            [
+                {
+                    "question": "She said that she __ (be) tired.",
+                    "options": ["was", "is", "were", "be"],
+                    "correctAnswer": "was"
+                },
+                {
+                    "question": "He said that he __ (go) to the store.",
+                    "options": ["went", "go", "going", "was going"],
+                    "correctAnswer": "went"
+                },
+                {
+                    "question": "They told me that they __ (not see) the movie.",
+                    "options": ["did not see", "do not see", "not see", "seen"],
+                    "correctAnswer": "did not see"
+                },
+                {
+                    "question": "She asked me if I __ (know) the answer.",
+                    "options": ["knew", "know", "knows", "was knowing"],
+                    "correctAnswer": "knew"
+                },
+                {
+                    "question": "He said that he __ (see) her the day before.",
+                    "options": ["saw", "see", "was seeing", "seen"],
+                    "correctAnswer": "saw"
+                }
+            ]
+        ]
+    },
+
+    {
+        "id": 9,
+        "title": "Advanced Grammar",
+        "difficulty": "Hard",
+        "date": "2024-09-01",
+        "points": 15,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "She __ (have) a lot of work to do.",
+                    "options": ["had", "has", "have", "having"],
+                    "correctAnswer": "has"
+                },
+                {
+                    "question": "They __ (be) friends for many years.",
+                    "options": ["have been", "has been", "were", "are"],
+                    "correctAnswer": "have been"
+                },
+                {
+                    "question": "I wish I __ (know) the answer.",
+                    "options": ["knew", "know", "had known", "was knowing"],
+                    "correctAnswer": "knew"
+                },
+                {
+                    "question": "If he __ (study) harder, he would have passed the exam.",
+                    "options": ["had studied", "studied", "would study", "studies"],
+                    "correctAnswer": "had studied"
+                },
+                {
+                    "question": "She __ (not see) him since last week.",
+                    "options": ["has not seen", "have not seen", "was not seeing", "not see"],
+                    "correctAnswer": "has not seen"
+                }
+            ],
+            [
+                {
+                    "question": "They __ (travel) to many countries.",
+                    "options": ["have traveled", "has traveled", "traveled", "are traveling"],
+                    "correctAnswer": "have traveled"
+                },
+                {
+                    "question": "If I __ (be) rich, I would travel the world.",
+                    "options": ["were", "was", "am", "be"],
+                    "correctAnswer": "were"
+                },
+                {
+                    "question": "By the time she arrives, we __ (finish) dinner.",
+                    "options": ["will have finished", "have finished", "finished", "will finish"],
+                    "correctAnswer": "will have finished"
+                },
+                {
+                    "question": "I would have gone if I __ (know) about it.",
+                    "options": ["had known", "know", "knew", "was knowing"],
+                    "correctAnswer": "had known"
+                },
+                {
+                    "question": "She __ (study) English for five years.",
+                    "options": ["has studied", "had studied", "studies", "is studying"],
+                    "correctAnswer": "has studied"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Complex Sentences",
+        "difficulty": "Hard",
+        "date": "2023-10-01",
+        "points": 15,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "Although it was raining, we __ (go) to the beach.",
+                    "options": ["went", "go", "going", "will go"],
+                    "correctAnswer": "went"
+                },
+                {
+                    "question": "While I was cooking, he __ (clean) the house.",
+                    "options": ["was cleaning", "cleaned", "clean", "cleans"],
+                    "correctAnswer": "was cleaning"
+                },
+                {
+                    "question": "Unless you __ (study), you won't pass the exam.",
+                    "options": ["study", "studies", "studied", "studying"],
+                    "correctAnswer": "study"
+                },
+                {
+                    "question": "As soon as she __ (finish) her homework, she went out.",
+                    "options": ["finished", "finish", "finishing", "was finishing"],
+                    "correctAnswer": "finished"
+                },
+                {
+                    "question": "Whenever he __ (call), I answer.",
+                    "options": ["calls", "called", "call", "calling"],
+                    "correctAnswer": "calls"
+                }
+            ],
+            [
+                {
+                    "question": "Even though he was tired, he __ (finish) the race.",
+                    "options": ["finished", "finishes", "finish", "finishing"],
+                    "correctAnswer": "finished"
+                },
+                {
+                    "question": "After they __ (eat), they went for a walk.",
+                    "options": ["ate", "eat", "eating", "had eaten"],
+                    "correctAnswer": "ate"
+                },
+                {
+                    "question": "If you __ (not hurry), you will be late.",
+                    "options": ["do not hurry", "did not hurry", "not hurry", "hurry"],
+                    "correctAnswer": "do not hurry"
+                },
+                {
+                    "question": "Before she __ (leave), she said goodbye.",
+                    "options": ["left", "leave", "leaving", "had left"],
+                    "correctAnswer": "left"
+                },
+                {
+                    "question": "Whenever it __ (rain), I stay indoors.",
+                    "options": ["rains", "rained", "rain", "raining"],
+                    "correctAnswer": "rains"
+                }
+            ]
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Inversions and Emphatic Structures",
+        "difficulty": "Hard",
+        "date": "2023-11-01",
+        "points": 15,
+        "number_of_tests": 2,
+        "tests": [
+            [
+                {
+                    "question": "Rarely __ (he / go) to the gym.",
+                    "options": ["does he go", "he goes", "he did go", "goes he"],
+                    "correctAnswer": "does he go"
+                },
+                {
+                    "question": "Not only __ (she / win) the prize, but also set a record.",
+                    "options": ["did she win", "she won", "she does win", "wins she"],
+                    "correctAnswer": "did she win"
+                },
+                {
+                    "question": "Hardly __ (they / understand) the topic.",
+                    "options": ["do they understand", "they understand", "they did understand", "understand they"],
+                    "correctAnswer": "do they understand"
+                },
+                {
+                    "question": "Seldom __ (I / see) him at the party.",
+                    "options": ["do I see", "I see", "I saw", "saw I"],
+                    "correctAnswer": "do I see"
+                },
+                {
+                    "question": "Only after the storm __ (we / leave) the house.",
+                    "options": ["did we leave", "we left", "we do leave", "left we"],
+                    "correctAnswer": "did we leave"
+                }
+            ],
+            [
+                {
+                    "question": "Little __ (she / know) about the plan.",
+                    "options": ["did she know", "she knows", "she did know", "knows she"],
+                    "correctAnswer": "did she know"
+                },
+                {
+                    "question": "Only by working hard __ (you / succeed).",
+                    "options": ["will you succeed", "you succeed", "did you succeed", "you do succeed"],
+                    "correctAnswer": "will you succeed"
+                },
+                {
+                    "question": "Never __ (he / tell) anyone about it.",
+                    "options": ["did he tell", "he tells", "he did tell", "tells he"],
+                    "correctAnswer": "did he tell"
+                },
+                {
+                    "question": "Scarcely __ (they / arrive) when it started to rain.",
+                    "options": ["had they arrived", "they arrived", "did they arrive", "arrived they"],
+                    "correctAnswer": "had they arrived"
+                },
+                {
+                    "question": "Only if you try your best __ (you / succeed).",
+                    "options": ["will you succeed", "you succeed", "did you succeed", "you do succeed"],
+                    "correctAnswer": "will you succeed"
+                }
+            ]
+        ]
+    }
+]

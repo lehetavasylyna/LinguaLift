@@ -1,0 +1,40 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.result-item {
+    margin-bottom: 10px;
+}
+
+.optionButton {
+    line-height: 24px;
+    font-size: 24px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.retryButton {
+    line-height: 24px;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-top: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.retryButton:hover {
+    background-color: #45a049;
+}

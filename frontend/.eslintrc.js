@@ -6,6 +6,15 @@ const config = {
         node: true,
         es2021: true,
     },
+    parser: 'babel-eslint',
+    parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
+        },
+        requireConfigFile: false,
+    },
     extends: [
         'eslint:recommended',
         /* https://www.npmjs.com/package/eslint-plugin-react */
@@ -22,16 +31,20 @@ const config = {
     ],
     /* https://github.com/import-js/eslint-plugin-import */
     settings: {
+        react: {
+            version: 'detect',
+        },
         'import/resolver': {
             node: {
                 extensions: ['.js', '.jsx'],
             },
             webpack: {
-                config: './config/webpack.dev.config.js',
+                config: './config/webpack.development.config.js',
             },
         },
     },
-    plugins: ['simple-import-sort', 'react'],
+
+    plugins: ['simple-import-sort', 'react', 'react-hooks'],
     ignorePatterns: ['node_modules'],
     rules: {
         'unicorn/filename-case': [
@@ -48,16 +61,6 @@ const config = {
         'import/namespace': [2, { allowComputed: true }],
         'import/first': 'error',
         'import/newline-after-import': 'error',
-        'no-unused-vars': [
-            'error',
-            {
-                vars: 'all',
-                args: 'after-used',
-                caughtErrors: 'all',
-                ignoreRestSiblings: false,
-                reportUsedIgnorePattern: false,
-            },
-        ],
     },
     overrides: [
         {

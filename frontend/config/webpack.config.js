@@ -1,5 +1,6 @@
-const path = require('path');
+const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const basicConfig = {
     entry: path.resolve(__dirname, '../src/index.js'),
@@ -11,12 +12,14 @@ const basicConfig = {
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname, '../templates/index.html'),
         }),
+        new CopyPlugin({
+            patterns: [{ from: path.resolve(__dirname, '../assets'), to: path.resolve(__dirname, '../dist/assets') }],
+        }),
     ],
-    // mode: "development",
     module: {
         rules: [
             {
-                test: /\.jsx?$/i, // /\.(js|jsx)/i
+                test: /\.(js|jsx)$/i,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -32,10 +35,14 @@ const basicConfig = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            '@hooks': path.resolve(__dirname, 'src/hooks'),
+            '@components': path.resolve(__dirname, '../src/components'),
+            '@hooks': path.resolve(__dirname, '../src/hooks'),
         },
     },
     devServer: {
+        historyApiFallback: true,
+        static: path.join(__dirname, '../dist'),
+        compress: true,
         port: 9000,
     },
 };

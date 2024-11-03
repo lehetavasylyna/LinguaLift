@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 const webpackConfig = require('./config/webpack.cypress.config');
 
 module.exports = defineConfig({
+    projectId: 'u7vbzk',
     component: {
         devServer: {
             framework: 'react',
@@ -22,7 +23,11 @@ module.exports = defineConfig({
 
     e2e: {
         setupNodeEvents(on, config) {
-            // implement node event listeners here
+            on('after:spec', (spec, results) => {
+                if (results && results.video) {
+                    console.log(`Тест ${spec.name} завершено!`);
+                }
+            });
         },
     },
 });

@@ -1,0 +1,145 @@
+.container {
+    width: 100%;
+    background-color: #3a5a40;
+    padding: 4px;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+}
+
+.logo {
+    height: 64px;
+    width: 64px;
+    margin: 24px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.overlapMenu {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 40px;
+}
+
+.menuBtn:first-child {
+    font-weight: 700;
+}
+
+.menuBtn {
+    color: #dad7cd;
+    font-family: 'Inter', Helvetica, sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    text-decoration: none;
+}
+
+.authBtns {
+    display: flex;
+    padding: 0 150px 0 72px;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.authBtn {
+    align-items: center;
+    background-color: #ff6868;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    height: 54px;
+    justify-content: center;
+    padding: 12px 24px;
+    width: 166px;
+}
+
+.signUp,
+.logIn {
+    color: white;
+    font-family: 'Montserrat-Medium', Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 8px 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .overlapMenu {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .authBtns {
+        gap: 12px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0px;
+    }
+
+    .authBtn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        height: 48px;
+        width: 48px;
+        margin-bottom: 12px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .overlapMenu {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .authBtns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 0px;
+    }
+
+    .authBtn {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+    }
+}
