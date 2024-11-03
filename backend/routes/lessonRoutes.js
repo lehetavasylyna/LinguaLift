@@ -6,13 +6,13 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(authController.protect, lessonsController.getAllLessons)
+  .get(lessonsController.getAllLessons)
   .post(lessonsController.createLesson);
 
 router
   .route('/:id')
   .get(lessonsController.getLesson)
   .patch(lessonsController.updateLesson)
-  .delete(authController.protect, lessonsController.deleteLesson);
+  .delete(lessonsController.deleteLesson);
 
 module.exports = router;
