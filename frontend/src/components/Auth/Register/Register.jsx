@@ -20,6 +20,7 @@ export const RegisterComp = ({ isRegistration }) => {
             <form className={styles.userInput}>
                 <div className={styles.input}>
                     <input
+                        name="email"
                         type="email"
                         placeholder="Електронна пошта"
                         onChange={(e) => setEmail(e.target.value)}
@@ -28,6 +29,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="username"
                         type="text"
                         placeholder="Користувацьке ім’я"
                         onChange={(e) => setFirstName(e.target.value)}
@@ -36,6 +38,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="password"
                         type="password"
                         placeholder="Пароль"
                         onChange={(e) => setPassword(e.target.value)}
@@ -44,6 +47,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="passwordconfirm"
                         type="password"
                         placeholder="Підтвердити пароль"
                         onChange={(e) => setConfirmPassword(e.target.value)}
