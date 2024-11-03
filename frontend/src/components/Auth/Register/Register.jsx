@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 import useAuth from '../../../hooks/useAuth';
 
@@ -8,7 +7,6 @@ export const RegisterComp = ({ isRegistration }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const { register, loading } = useAuth();
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
 
     return (
         <div className={styles.mainContainer}>
