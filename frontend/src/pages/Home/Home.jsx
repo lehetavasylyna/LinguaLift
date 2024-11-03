@@ -5,10 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { LessonCard } from '../../components/LessonCard';
-import { useAuthContext } from '../../contexts/AuthContext';
 
 const Home = () => {
-    const { isRegistered } = useAuthContext();
     const navigate = useNavigate();
     const lessonId = 1;
 

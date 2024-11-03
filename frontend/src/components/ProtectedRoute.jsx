@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuthContext } from '../contexts/AuthContext';
+import useAuth from '../hooks/useAuth';
 
 const ProtectedRoute = ({ element }) => {
-    const { isAuthenticated } = useAuthContext();
-    // const { isAuthenticated, initializedAuthStatus } = useAuthContext();
-    // useEffect(() => {
-    //     initializedAuthStatus();
-    // }, []);
-
-    console.log(isAuthenticated);
+    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
+    useEffect(() => {}, []);
 
     return isAuthenticated ? element : <Navigate to="/login" />;
 };

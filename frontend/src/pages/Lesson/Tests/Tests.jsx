@@ -1,11 +1,10 @@
-import styles from './Tests.module.css';
-import { Link, useParams } from 'react-router-dom';
 import React from 'react';
-import tests from '../../../../data/data-tests.json';
-
+import { useParams } from 'react-router-dom';
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import { TestPage } from '../../../components/TestPage';
+import tests from '../../../../data/data-tests.json';
+import styles from './Tests.module.css';
 
 function Tests() {
     const { id, testId } = useParams();

@@ -1,95 +1,79 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const useAuth = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
+    const [isReg, setIsReg] = useState(false);
+    const [firstName, setFirstName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const register = async (userData) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
+    const navigate = useNavigate();
 
+    const toggleForm = () => setIsReg((value) => !value);
+
+    const handleRegister = async () => {
         try {
             const response = await fetch('http://localhost:3000/api/v1/users/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ firstName, email, password }),
             });
 
-            if (!response.ok) {
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Registration successful:', data);
+                navigate('/login');
+            } else {
                 const errorData = await response.json();
-                throw new Error(errorData.message || 'Реєстрація не вдалася');
+                console.error('Registration error:', errorData.message);
+                setErrorMessage(errorData.message || 'Registration failed.');
             }
-
-            const data = await response.json();
-            setSuccess(true);
-            return data;
         } catch (err) {
-            console.error('Помилка реєстрації:', err);
-            setError(err);
-        } finally {
-            setLoading(false);
+            console.error('Registration failed:', err);
+            console.error('Registration failed:', err.message);
+            alert('Registration failed. Try again later.');
         }
     };
 
-    const login = async (userData) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
+    const handleLogin = async () => {
         try {
             const response = await fetch('http://localhost:3000/api/v1/users/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Вхід не вдався');
+            console.log('RESPONSE IS');
+            if (response.ok) {
+                console.log('RESPONSE IS OK');
+                const data = await response.json();
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('email', email);
+                navigate('/lessons');
+            } else {
+                const error = await response.json();
+                console.error(`Error: ${error.message}`);
+                setErrorMessage(error.message || 'Login failed.');
             }
-
-            const data = await response.json();
-            const token = data.token;
-            localStorage.setItem('token', token);
-            setSuccess(true);
-            setSuccess;
-            return data;
         } catch (err) {
-            setError(err.message);
-            throw err;
-        } finally {
-            setLoading(false);
+            console.error('Login failed:', err);
         }
     };
 
-    const getUserData = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/user', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            if (!response.ok) {
-                throw new Error('Не вдалося отримати дані користувача');
-            }
-
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Помилка при отриманні даних користувача:', error);
-            throw error;
-        }
+    const logout = () => {
+        localStorage.removeItem('token');
     };
 
-    return { register, login, loading, error, success, getUserData };
+    return {
+        isReg,
+        setFirstName,
+        setEmail,
+        setPassword,
+        toggleForm,
+        handleRegister,
+        handleLogin,
+        logout,
+    };
 };
 
 export default useAuth;

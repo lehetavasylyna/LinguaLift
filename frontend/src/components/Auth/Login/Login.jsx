@@ -1,47 +1,14 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 import useAuth from '../../../hooks/useAuth';
-import { useAuthContext } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginComp = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = useAuth();
     const { login, loading } = useAuth();
-    const { updateAuthStatus } = useAuthContext();
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [attempts, setAttempts] = useState(0);
-
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setErrorMessage('');
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            setErrorMessage('Введіть дійсну електронну пошту');
-            return;
-        }
-
-        const userData = { email, password };
-
-        try {
-            const user = await login(userData);
-            updateAuthStatus(true);
-            setEmail('');
-            setPassword('');
-            setAttempts(0);
-            navigate('/lessons');
-        } catch (err) {
-            setAttempts((prev) => prev + 1);
-            setErrorMessage(err.message || 'Щось пішло не так');
-            setEmail('');
-
-            if (attempts >= 2) {
-                setErrorMessage('Немає акаунта? Зареєструйтеся.');
-            }
-        }
-    };
 
     return (
         <div className={styles.mainContainer}>
@@ -51,14 +18,13 @@ export const LoginComp = () => {
             <span className={styles.login}>Вхід</span>
             {errorMessage && <div className={styles.error}>{errorMessage}</div>}
 
-            <form onSubmit={handleLogin} className={styles.userInput}>
+            <form className={styles.userInput}>
                 <div className={styles.input}>
                     <input
                         name="email"
                         type="email"
                         className={styles.email}
                         placeholder="Електронна пошта"
-                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
@@ -70,13 +36,19 @@ export const LoginComp = () => {
                         type="password"
                         className={styles.password}
                         placeholder="Пароль"
-                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </div>
 
-                <button className={styles.loginBtn} type="submit" disabled={loading}>
+                <button
+                    className={styles.loginBtn}
+                    type="button"
+                    onClick={() => {
+                        handleLogin();
+                    }}
+                    disabled={loading}
+                >
                     {loading ? 'Вхід...' : 'Увійти'}
                 </button>
             </form>

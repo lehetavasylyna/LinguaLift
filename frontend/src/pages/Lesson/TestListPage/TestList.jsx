@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import tests from '../../../../data/data-tests.json';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import { TestList } from '../../../components/TestList';
@@ -12,24 +11,34 @@ function Test() {
     const lessonId = parseInt(id);
     const [selectedTest, setSelectedTest] = useState(null);
     const [userResults, setUserResults] = useState({});
+    const [tests, setTests] = useState([]);
 
-    const generateTestData = (tests, lessonId) => {
-        const testData = [];
-        const lesson = tests.find((lesson) => lesson.id === lessonId);
-
-        if (lesson) {
-            for (let i = 1; i <= lesson.number_of_tests; i++) {
-                testData.push({
-                    name: `Test ${i} of ${lesson.title}`,
+    useEffect(() => {
+        const loadTests = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/v1/lessons`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
                 });
-            }
-        }
 
-        return testData;
-    };
+                if (!response.ok) {
+                    throw new Error('Failed to fetch lessons');
+                }
+
+                const data = await response.json();
+                const lessonsArray = data.data.lessons;
+
+                setTests(lessonsArray);
+            } catch (error) {
+                console.error('Error fetching tests:', error.message);
+            }
+        };
+
+        loadTests();
+    }, []);
 
     const lesson = tests.find((lesson) => lesson.id === lessonId);
-    const testData = generateTestData(tests, lessonId);
+    const testGroups = lesson ? lesson.tests : [];
 
     const isTestAccessible = (testIndex) => {
         const score = userResults[lessonId]?.[testIndex]?.score || 0;
@@ -37,25 +46,32 @@ function Test() {
         return !(score === 100 || attempts >= 3);
     };
 
-    const handleTestSelect = (index) => {
-        if (!isTestAccessible(index)) {
-            alert('Цей тест недоступний, оскільки ви досягли 100% або витратили всі спроби.');
+    const handleTestSelect = (testIndex) => {
+        if (!isTestAccessible(testIndex)) {
+            alert('Цей тест недоступний, оскільки ви досягли максимальних спроб або пройшли тест.');
             return;
         }
-        setSelectedTest(index);
+        setSelectedTest(testIndex);
     };
 
     return (
         <div className={styles.tests}>
             <Header />
+            <h1>{lesson ? lesson.title : 'Завантаження...'}</h1>
             <div className={styles.content}>
                 {selectedTest === null ? (
-                    <TestList tests={testData} onTestSelect={handleTestSelect} />
+                    <TestList
+                        tests={testGroups.map((test, index) => ({
+                            ...test,
+                            label: `Test ${index + 1} of ${lesson.title}`,
+                        }))}
+                        onTestSelect={handleTestSelect}
+                    />
                 ) : (
                     <TestPage
-                        questions={lesson.tests[selectedTest]}
+                        questions={lesson ? lesson.tests[selectedTest] : []}
                         onSubmit={(answers) => {
-                            const score = calculateScore(answers, lesson.tests[selectedTest]);
+                            const score = calculateScore(answers, lesson.tests[selectedTest].correctAnswers);
                             setUserResults((prev) => ({
                                 ...prev,
                                 [lessonId]: {
@@ -70,9 +86,6 @@ function Test() {
                         }}
                     />
                 )}
-                <Link to={'/lessons'} className={styles.backBtn}>
-                    ⬅ Назад
-                </Link>
             </div>
             <Footer />
         </div>

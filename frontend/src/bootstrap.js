@@ -1,13 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { AuthProvider } from './contexts/AuthContext';
 
 const domNode = document.querySelector('#react-app');
 const root = createRoot(domNode);
 
-root.render(
-    <AuthProvider>
-        <App />
-    </AuthProvider>,
-);
+root.render(<App />);

@@ -5,10 +5,12 @@ class APIFeatures {
   }
 
   filter() {
+    // 1A) Filtering
     const queryObj = { ...this.queryString };
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
+    // 1B) Advanced filtering
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
@@ -44,6 +46,7 @@ class APIFeatures {
     const limit = this.queryString.limit * 1 || 100;
     const skip = (page - 1) * limit;
 
+    // page=3&limit=10 1-10, page 1, 11-20, page 2
     this.query = this.query.skip(skip).limit(limit);
 
     return this;

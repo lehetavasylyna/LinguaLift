@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './Header.module.css';
+import useAuth from '../../hooks/useAuth';
 
 export const Header = () => {
-    const { isRegistered, isAuthenticated, logout } = useAuthContext();
-    console.log('isRegistered:   ' + isRegistered);
-    console.log('isAuthenticated:   ' + isAuthenticated);
+    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = useAuth();
+    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
 
     return (
         <header className={styles.container}>
@@ -31,7 +30,7 @@ export const Header = () => {
                         </>
                     )}
 
-                    {!isRegistered ? (
+                    {!isAuthenticated ? (
                         <>
                             <Link to="/login" className={styles.menuBtn}>
                                 Словник
@@ -45,7 +44,7 @@ export const Header = () => {
                         </>
                     )}
 
-                    {!isRegistered ? (
+                    {!isAuthenticated ? (
                         <></>
                     ) : (
                         <>
@@ -56,7 +55,7 @@ export const Header = () => {
                     )}
                 </div>
                 <div className={styles.authBtns}>
-                    {!isRegistered ? (
+                    {!isAuthenticated ? (
                         <>
                             <div className={styles.authBtn}>
                                 <Link to="/register" className={styles.signUp}>

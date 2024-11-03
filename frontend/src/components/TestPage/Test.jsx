@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import styles from './Test.module.css';
 
@@ -10,10 +10,9 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
     const [bestScore, setBestScore] = useState(0);
     const [isResultVisible, setIsResultVisible] = useState(false);
     const [currentScore, setCurrentScore] = useState(0);
-    const [userResults, setUserResults] = useState({});
-
     const { id } = useParams();
     const lessonId = parseInt(id);
+    const navigate = useNavigate();
 
     const handleAnswer = (answer) => {
         const newAnswers = [...answers];
@@ -31,23 +30,13 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
 
     const handleSubmit = () => {
         const score = calculateScore();
-
         if (attempt >= maxAttempts) {
             alert('Ви витратили всі спроби на цей тест!');
             return;
         }
-
         if (score > bestScore) {
             setBestScore(score);
-            setUserResults((prevResults) => ({
-                ...prevResults,
-                [lessonId]: {
-                    ...prevResults[lessonId],
-                    [attempt]: score,
-                },
-            }));
         }
-
         setCurrentScore(score);
         setIsResultVisible(true);
     };
@@ -58,6 +47,14 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
         setAnswers(Array(questions.length).fill(null));
         setAttempt(attempt + 1);
         setCurrentScore(0);
+    };
+
+    const handleBackToTests = () => {
+        setIsResultVisible(false);
+        setCurrentQuestion(0);
+        setAnswers(Array(questions.length).fill(null));
+        setCurrentScore(0);
+        navigate(`/lessons/${lessonId}/tests`);
     };
 
     const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -91,9 +88,9 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
                             Спробувати ще раз
                         </button>
                     )}
-                    <Link to={`/lessons/${lessonId}/tests`} className={`${styles.retryButton}`}>
+                    <button className={styles.retryButton} onClick={handleBackToTests}>
                         Повернутись до всіх тестів
-                    </Link>
+                    </button>
                 </div>
             )}
         </div>

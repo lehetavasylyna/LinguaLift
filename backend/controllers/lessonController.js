@@ -4,13 +4,7 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
 exports.getAllLessons = catchAsync(async (req, res, next) => {
-  const features = new APIFeatures(Lesson.find(), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
-
-  const lessons = await features.query;
+  const lessons = await Lesson.find();
 
   res.status(200).json({
     status: 'success',
