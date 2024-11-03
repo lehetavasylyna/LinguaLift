@@ -32,11 +32,6 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
     const handleSubmit = () => {
         const score = calculateScore();
 
-        if (score >= 100) {
-            alert('Ви вже пройшли цей тест на 100%! Ви не можете пройти його знову.');
-            return;
-        }
-
         if (attempt >= maxAttempts) {
             alert('Ви витратили всі спроби на цей тест!');
             return;

@@ -10,8 +10,6 @@ exports.getAllLessons = catchAsync(async (req, res, next) => {
     .limitFields()
     .paginate();
 
-  // console.log(req.query);
-
   const lessons = await features.query;
 
   res.status(200).json({

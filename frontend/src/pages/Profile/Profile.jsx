@@ -24,6 +24,8 @@ function Profile() {
             setLoading(true);
             try {
                 await loadUserProfile();
+                const total = user.scores.reduce((acc, score) => acc + score, 0);
+                setTotalScore(total);
             } catch (error) {
                 console.error('Error fetching user profile', error);
             } finally {
@@ -52,7 +54,6 @@ function Profile() {
                             <div className={styles.general}>{user?.country || 'Україна'}</div>
                             <div className={styles.knowledgmentInfo}>
                                 <div className={styles.knowledgment}>Рівень: {user?.level || 'C1'}</div>
-                                <div className={styles.knowledgment}>Загальний бал: {user?.score || 245}</div>
                             </div>
                             <div className={styles.btns}>
                                 <button className={styles.btn} onClick={handleLogout}>
