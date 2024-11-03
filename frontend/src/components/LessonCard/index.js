@@ -1,2 +1,2 @@
-export * from './LessonCard'; //default excluded
+export * from './LessonCard';
 export { default } from './LessonCard';

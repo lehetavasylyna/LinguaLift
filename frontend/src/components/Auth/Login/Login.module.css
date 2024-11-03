@@ -1,7 +1,7 @@
 .mainContainer {
     position: relative;
     width: 624px;
-    height: 600px;
+    height: 520px;
     background: #ffffff;
     overflow: hidden;
     border-radius: 24px;
@@ -11,9 +11,9 @@
     justify-content: center;
 }
 
-.register {
+.login {
     height: 24px;
-    margin: 42px 0;
+    margin: 24px 0;
     color: #000000;
     font-family: Montserrat;
     font-size: 36px;
@@ -22,7 +22,7 @@
     text-align: center;
 }
 
-.further {
+.loginBtn {
     width: 239px;
     height: 54px;
     margin-top: 24px;
@@ -34,10 +34,13 @@
     text-align: center;
     white-space: nowrap;
     border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-top: 12px;
 }
 
 .email,
-.nickname,
 .password,
 .passwordConfirm {
     width: 450px;
@@ -56,15 +59,36 @@ input::placeholder {
     color: #888888;
 }
 
-.login {
+.linksContainer {
     margin-top: 20px;
     color: #000000;
     font-family: Montserrat;
     font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
-.login:hover {
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.link:hover {
     text-decoration: underline;
+}
+
+.backToHome {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #ff6868;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.backToHome:hover {
+    color: #ad3636;
 }

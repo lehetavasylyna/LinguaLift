@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import styles from './Test.css';
+import styles from './Test.module.css';
 
 export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState(Array(questions.length).fill(null));
     const [attempt, setAttempt] = useState(0);
     const [bestScore, setBestScore] = useState(0);
-    const [circles, setCircles] = useState(Array(maxAttempts).fill('notAttempted'));
     const [isResultVisible, setIsResultVisible] = useState(false);
     const [currentScore, setCurrentScore] = useState(0);
+    const { id } = useParams();
+    const lessonId = parseInt(id);
+    const navigate = useNavigate();
 
     const handleAnswer = (answer) => {
         const newAnswers = [...answers];
@@ -28,12 +30,13 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
 
     const handleSubmit = () => {
         const score = calculateScore();
+        if (attempt >= maxAttempts) {
+            alert('Ви витратили всі спроби на цей тест!');
+            return;
+        }
         if (score > bestScore) {
             setBestScore(score);
         }
-        const newCircles = [...circles];
-        newCircles[attempt] = score >= 50 ? 'success' : 'fail';
-        setCircles(newCircles);
         setCurrentScore(score);
         setIsResultVisible(true);
     };
@@ -43,6 +46,15 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
         setCurrentQuestion(0);
         setAnswers(Array(questions.length).fill(null));
         setAttempt(attempt + 1);
+        setCurrentScore(0);
+    };
+
+    const handleBackToTests = () => {
+        setIsResultVisible(false);
+        setCurrentQuestion(0);
+        setAnswers(Array(questions.length).fill(null));
+        setCurrentScore(0);
+        navigate(`/lessons/${lessonId}/tests`);
     };
 
     const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -53,9 +65,9 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
             <ProgressBar progress={progress} />
             {!isResultVisible ? (
                 <>
-                    <h2>{questions[currentQuestion].question}</h2>
+                    <h2>{questions[currentQuestion]?.question}</h2>
                     <div className={styles.options}>
-                        {questions[currentQuestion].options.map((option, i) => (
+                        {questions[currentQuestion]?.options.map((option, i) => (
                             <button key={i} className={styles.optionButton} onClick={() => handleAnswer(option)}>
                                 {option}
                             </button>
@@ -70,19 +82,15 @@ export const TestPage = ({ questions, onSubmit, maxAttempts = 3 }) => {
             ) : (
                 <div className={styles.resultContainer}>
                     <h2 className={styles.resultText}>Ваш результат: {currentScore}%</h2>
-                    <div className={styles.circlesContainer}>
-                        {circles.map((status, i) => (
-                            <div key={i} className={`${styles.circle} ${styles[status]}`} />
-                        ))}
-                    </div>
+                    <h3 className={styles.bestScoreText}>Найкращий результат: {bestScore}%</h3>
                     {attempt + 1 < maxAttempts && (
                         <button className={styles.retryButton} onClick={handleRetry}>
                             Спробувати ще раз
                         </button>
                     )}
-                    <Link to={`/lessons/${1}/tests`} className={`${styles.retryButton}`}>
+                    <button className={styles.retryButton} onClick={handleBackToTests}>
                         Повернутись до всіх тестів
-                    </Link>
+                    </button>
                 </div>
             )}
         </div>

@@ -1,41 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
+import useAuth from '../../hooks/useAuth';
 
-import styles from './Header.css';
+export const Header = () => {
+    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = useAuth();
+    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
 
-export const Header = () => (
-    <header className={styles.container}>
-        <div className={styles.menu}>
-            <img className={styles.logo} src="../../../assets/img/logo.png" alt="Logo" />
-            <div className={styles.overlapMenu}>
-                <a href="/" className={styles.menuBtn}>
-                    Головна
-                </a>
-                <a href="/lessons" className={styles.menuBtn}>
-                    Уроки
-                </a>
-                <a href="/vocabulary" className={styles.menuBtn}>
-                    Мій Словник
-                </a>
-                <a href="/profile" className={styles.menuBtn}>
-                    Профіль
-                </a>
-            </div>
-            <div className={styles.authBtns}>
-                <div className={styles.authBtn}>
-                    <Link to={'/register'} className={styles.signUp}>
-                        Зареєструватися
+    return (
+        <header className={styles.container}>
+            <div className={styles.menu}>
+                <img className={styles.logo} src="../../../assets/img/logo.png" alt="Logo" />
+                <div className={styles.overlapMenu}>
+                    <Link to="/" className={styles.menuBtn}>
+                        Головна
                     </Link>
-                </div>
 
-                <div className={styles.authBtn}>
-                    <Link to={'/login'} className={styles.logIn}>
-                        Увійти
-                    </Link>
+                    {!isAuthenticated ? (
+                        <>
+                            <Link to="/login" className={styles.menuBtn}>
+                                Уроки
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/lessons" className={styles.menuBtn}>
+                                Уроки
+                            </Link>
+                        </>
+                    )}
+
+                    {!isAuthenticated ? (
+                        <>
+                            <Link to="/login" className={styles.menuBtn}>
+                                Словник
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/vocabulary" className={styles.menuBtn}>
+                                Словник
+                            </Link>
+                        </>
+                    )}
+
+                    {!isAuthenticated ? (
+                        <></>
+                    ) : (
+                        <>
+                            <Link to="/profile" className={styles.menuBtn}>
+                                Профіль
+                            </Link>
+                        </>
+                    )}
+                </div>
+                <div className={styles.authBtns}>
+                    {!isAuthenticated ? (
+                        <>
+                            <div className={styles.authBtn}>
+                                <Link to="/register" className={styles.signUp}>
+                                    Зареєструватися
+                                </Link>
+                            </div>
+                            <div className={styles.authBtn}>
+                                <Link to="/login" className={styles.logIn}>
+                                    Увійти
+                                </Link>
+                            </div>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
-        </div>
-    </header>
-);
+        </header>
+    );
+};
 
 export default Header;

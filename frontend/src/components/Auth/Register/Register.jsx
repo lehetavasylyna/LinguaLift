@@ -1,31 +1,66 @@
-import React from 'react';
-import styles from './Register.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './Register.module.css';
+import useAuth from '../../../hooks/useAuth';
 
-export const RegisterComp = () => {
+export const RegisterComp = ({ isRegistration }) => {
+    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = useAuth();
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const { register, loading } = useAuth();
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+
     return (
         <div className={styles.mainContainer}>
+            <a className={styles.backToHome} href="/">
+                ⬅
+            </a>
             <span className={styles.register}>Реєстрація</span>
-
-            <div className={styles.userInput}>
+            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
+            <form className={styles.userInput}>
                 <div className={styles.input}>
-                    <input type="text" className={styles.email} placeholder="Електронна пошта" />
+                    <input
+                        type="email"
+                        placeholder="Електронна пошта"
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
-
                 <div className={styles.input}>
-                    <input type="text" className={styles.nickname} placeholder="Користувацьке ім’я" />
+                    <input
+                        type="text"
+                        placeholder="Користувацьке ім’я"
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                    />
                 </div>
-
                 <div className={styles.input}>
-                    <input type="password" className={styles.password} placeholder="Пароль" />
+                    <input
+                        type="password"
+                        placeholder="Пароль"
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
                 </div>
-
                 <div className={styles.input}>
-                    <input type="password" className={styles.passwordConfirm} placeholder="Підтвердити пароль" />
+                    <input
+                        type="password"
+                        placeholder="Підтвердити пароль"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
                 </div>
-            </div>
-
-            <button className={styles.further}>Далі</button>
-
+                <button
+                    className={styles.registerBtn}
+                    type="button"
+                    onClick={() => {
+                        handleRegister();
+                    }}
+                    disabled={loading}
+                >
+                    {loading ? 'Реєстрація...' : 'Реєстрація'}
+                </button>
+            </form>
             <a href="/login" className={styles.login}>
                 Увійти
             </a>

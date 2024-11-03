@@ -38,3 +38,22 @@
 .retryButton:hover {
     background-color: #45a049;
 }
+
+.submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    width: 200px;
+    height: 64px;
+    margin: 24px 0 0 24px;
+    padding: 12px 24px 12px 24px;
+    background: #ff6868;
+    z-index: 3;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    color: #fff;
+    font-size: 20px;
+}

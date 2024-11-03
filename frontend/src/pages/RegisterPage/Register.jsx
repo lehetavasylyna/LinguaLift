@@ -1,8 +1,13 @@
-import styles from './Register.css';
-import React from 'react';
+import React, { useState } from 'react';
+import styles from './Register.module.css';
 import RegisterComp from '../../components/Auth/Register';
 
 function Register() {
+    const [isRegistered, setIsRegistered] = useState(false);
+
+    const onRegister = () => {
+        setIsRegistered(true);
+    };
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
@@ -17,7 +22,7 @@ function Register() {
             </div>
 
             <div className={styles.registrationContainer}>
-                <RegisterComp />
+                <RegisterComp onRegister={onRegister} />
             </div>
         </div>
     );

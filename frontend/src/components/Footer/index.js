@@ -1,2 +1,2 @@
-export * from './Footer'; //default excluded
+export * from './Footer';
 export { default } from './Footer';

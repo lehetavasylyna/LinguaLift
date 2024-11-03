@@ -99,3 +99,24 @@
     white-space: nowrap;
     z-index: 6;
 }
+
+.circle {
+    flex-shrink: 0;
+    position: relative;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.easy {
+    background-color: #56a667;
+}
+
+.medium {
+    background-color: #dfeb00;
+}
+
+.hard {
+    background-color: #b80000;
+}

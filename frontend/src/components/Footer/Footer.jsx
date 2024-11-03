@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Footer.css';
+import styles from './Footer.module.css';
 
 export const Footer = () => (
     <footer className={styles.container}>
@@ -17,10 +17,18 @@ export const Footer = () => (
                 </div>
             </div>
             <div className={styles.footerBtns}>
-                <div className={styles.footerBtn}>Головна</div>
-                <div className={styles.footerBtn}>Новини</div>
-                <div className={styles.footerBtn}>Про нас</div>
-                <div className={styles.footerBtn}>Наша команда</div>
+                <a href="/" className={styles.footerBtn}>
+                    Головна
+                </a>
+                <a href="/" className={styles.footerBtn}>
+                    Новини
+                </a>
+                <a href="/" className={styles.footerBtn}>
+                    Про нас
+                </a>
+                <a href="/" className={styles.footerBtn}>
+                    Наша команда
+                </a>
             </div>
         </div>
     </footer>
