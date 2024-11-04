@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -87,11 +87,25 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,31 +123,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Lessons from './pages/Lessons/Lessons';
+import Register from './pages/RegisterPage/Register';
+import Profile from './pages/Profile/Profile';
+import UserVocabulary from './pages/UserVocabulary/UserVocabulary';
+import Login from './pages/LoginPage/Login';
+import Tests from './pages/Lesson/Tests/Tests';
+import TestList from './pages/Lesson/TestListPage/TestList';
+import ProtectedRoute from './components/ProtectedRoute';
 &nbsp;
-import { Header } from './components/Header';
-&nbsp;
-function App() {
+const App = () =&gt; {
     return (
-        &lt;div data-testid="app"&gt;
-            &lt;Header /&gt;
-            &lt;div id="tabs"&gt;
-                &lt;menu&gt;
-                    &lt;button id="btn-why-react" className="active"&gt;
-                        Чому саме React?
-                    &lt;/button&gt;
-                    &lt;button id="btn-core-features"&gt;Основні переваги (Features)&lt;/button&gt;
-                    &lt;button id="btn-resources"&gt;Корисні посилання&lt;/button&gt;
-                &lt;/menu&gt;
-                &lt;div id="tab-content" /&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+        &lt;BrowserRouter&gt;
+            &lt;Routes&gt;
+                &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+                &lt;Route path="/lessons" element={&lt;ProtectedRoute element={&lt;Lessons /&gt;} /&gt;} /&gt;
+                &lt;Route path="/lessons/:id/tests" element={&lt;ProtectedRoute element={&lt;TestList /&gt;} /&gt;} /&gt;
+                &lt;Route path="/lessons/:id/tests/:testId" element={&lt;ProtectedRoute element={&lt;Tests /&gt;} /&gt;} /&gt;
+                &lt;Route path="/register" element={&lt;Register /&gt;} /&gt;
+                &lt;Route path="/login" element={&lt;Login /&gt;} /&gt;
+                &lt;Route path="/vocabulary" element={&lt;ProtectedRoute element={&lt;UserVocabulary /&gt;} /&gt;} /&gt;
+                &lt;Route path="/profile" element={&lt;ProtectedRoute element={&lt;Profile /&gt;} /&gt;} /&gt;
+            &lt;/Routes&gt;
+        &lt;/BrowserRouter&gt;
     );
-}
+};
 &nbsp;
-// export { App };
 export default App;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -142,7 +160,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-10-21T22:02:47.808Z
+                at 2024-11-03T21:11:01.014Z
             </div>
         <script src="../prettify.js"></script>
         <script>

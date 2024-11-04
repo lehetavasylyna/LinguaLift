@@ -55,7 +55,7 @@
         "test:e2e": "webpack serve -c config/webpack.config.js cypress open",
         "lint": "eslint .",
         "prepare": "husky",
-        "coverage": "nyc npm run test"
+        "coverage": "npx nyc report --reporter=html"
     },
     "author": "",
     "license": "ISC",

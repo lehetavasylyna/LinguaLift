@@ -69,6 +69,7 @@ const useAuth = () => {
         setFirstName,
         setEmail,
         setPassword,
+        password,
         toggleForm,
         handleRegister,
         handleLogin,

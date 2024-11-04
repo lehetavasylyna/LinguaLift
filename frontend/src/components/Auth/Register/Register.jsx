@@ -4,11 +4,23 @@ import styles from './Register.module.css';
 import useAuth from '../../../hooks/useAuth';
 
 export const RegisterComp = ({ isRegistration }) => {
-    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = useAuth();
+    const { setFirstName, setEmail, password, setPassword, handleRegister } = useAuth();
     const [confirmPassword, setConfirmPassword] = useState('');
     const { register, loading } = useAuth();
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
+
+    const handleSubmit = async () => {
+        if (confirmPassword !== password) {
+            setErrorMessage('Паролі не збігаються.');
+            setPassword('');
+            setConfirmPassword('');
+            return;
+        }
+
+        setErrorMessage('');
+        await handleRegister();
+    };
 
     return (
         <div className={styles.mainContainer}>
@@ -37,6 +49,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 <div className={styles.input}>
                     <input
                         type="password"
+                        value={password}
                         placeholder="Пароль"
                         onChange={(e) => setPassword(e.target.value)}
                         required
@@ -45,6 +58,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 <div className={styles.input}>
                     <input
                         type="password"
+                        value={confirmPassword}
                         placeholder="Підтвердити пароль"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
@@ -54,7 +68,7 @@ export const RegisterComp = ({ isRegistration }) => {
                     className={styles.registerBtn}
                     type="button"
                     onClick={() => {
-                        handleRegister();
+                        handleSubmit();
                     }}
                     disabled={loading}
                 >
