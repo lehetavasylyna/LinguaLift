@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-import styles from './TestList.css';
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import { Footer } from '../../../components/Footer';
-import { Header } from '../../../components/Header';
-import { TestList } from '../../../components/TestList';
-
-function Test() {
-    const lessonId = 1;
-    const testData = [
-        {
-            name: 'Test 1',
-            attempts: ['success', 'fail', 'notAttempted'],
-        },
-        {
-            name: 'Test 2',
-            attempts: ['success', 'success', 'fail'],
-        },
-        {
-            name: 'Test 3',
-            attempts: ['success', 'notAttempted', 'notAttempted'],
-        },
-    ];
-=======
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Footer } from '../../../components/Footer';
@@ -80,19 +53,10 @@ function Test() {
         }
         setSelectedTest(testIndex);
     };
->>>>>>> backend_dev
 
     return (
         <div className={styles.tests}>
             <Header />
-<<<<<<< HEAD
-            <div className={styles.content}>
-                <Link to={`/lessons/${lessonId}`} className={styles.backBtn}>
-                    ⬅ Назад
-                </Link>
-
-                <TestList tests={testData} />
-=======
             <h1>{lesson ? lesson.title : 'Завантаження...'}</h1>
             <div className={styles.content}>
                 {selectedTest === null ? (
@@ -122,7 +86,6 @@ function Test() {
                         }}
                     />
                 )}
->>>>>>> backend_dev
             </div>
             <Footer />
         </div>

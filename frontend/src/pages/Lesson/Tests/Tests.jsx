@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-import styles from './Tests.css';
-
-import React from 'react';
-
-import { Footer } from '../../../components/Footer';
-import { Header } from '../../../components/Header';
-import { TestPage } from '../../../components/TestPage';
-
-function Tests() {
-    const questions = [
-        {
-            question: 'This is __ orange.',
-            options: ['a', 'an', 'the', '-'],
-            correctAnswer: 'an',
-        },
-        {
-            question: 'I have got ___ apple.',
-            options: ['a', 'an', 'the', '-'],
-            correctAnswer: 'an',
-        },
-        {
-            question: 'He has got __ strawberry.',
-            options: ['a', 'an', 'the', '-'],
-            correctAnswer: 'a',
-        },
-    ];
-=======
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Footer } from '../../../components/Footer';
@@ -56,19 +28,12 @@ function Tests() {
     };
 
     const testData = generateTestData(tests, lessonId, selectedTestId);
->>>>>>> backend_dev
 
     return (
         <div className={styles.tests}>
             <Header />
             <div className={styles.content}>
                 <div className={styles.mainContent}>
-<<<<<<< HEAD
-                    <TestPage
-                        questions={questions}
-                        onSubmit={(answers) => console.log('Submitted answers:', answers)}
-                    />
-=======
                     {testData ? (
                         <TestPage
                             questions={testData.questions}
@@ -77,7 +42,6 @@ function Tests() {
                     ) : (
                         <p>No test found.</p>
                     )}
->>>>>>> backend_dev
                 </div>
             </div>
             <Footer />

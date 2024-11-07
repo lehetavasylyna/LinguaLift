@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import styles from './Register.css';
-import React from 'react';
-import RegisterComp from '../../components/Auth/Register';
-
-function Register() {
-=======
 import React, { useState } from 'react';
 import styles from './Register.module.css';
 import RegisterComp from '../../components/Auth/Register';
@@ -15,7 +8,6 @@ function Register() {
     const onRegister = () => {
         setIsRegistered(true);
     };
->>>>>>> backend_dev
     return (
         <div className={styles.home}>
             <div className={styles.backgroundBlur}></div>
@@ -30,11 +22,7 @@ function Register() {
             </div>
 
             <div className={styles.registrationContainer}>
-<<<<<<< HEAD
-                <RegisterComp />
-=======
                 <RegisterComp onRegister={onRegister} />
->>>>>>> backend_dev
             </div>
         </div>
     );

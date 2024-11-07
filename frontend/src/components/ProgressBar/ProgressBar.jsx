@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import styles from './ProgressBar.css';
-=======
 import styles from './ProgressBar.module.css';
->>>>>>> backend_dev
 
 function ProgressBar({ progress }) {
     return (
