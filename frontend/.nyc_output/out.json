@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\Header.jsx": {
     "path": "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Header\\Header.jsx",
     "statementMap": {
@@ -9,16 +10,36 @@
         },
         "end": {
           "line": 14,
+=======
+  "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Footer\\Footer.jsx": {
+    "path": "F:\\Projects\\ReactUniverse\\Lingua-lift-recovered\\LinguaLift\\frontend\\src\\components\\Footer\\Footer.jsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 5,
+          "column": 22
+        },
+        "end": {
+          "line": 35,
+>>>>>>> backend_dev
           "column": 1
         }
       },
       "1": {
         "start": {
+<<<<<<< HEAD
           "line": 7,
           "column": 4
         },
         "end": {
           "line": 13,
+=======
+          "line": 6,
+          "column": 4
+        },
+        "end": {
+          "line": 34,
+>>>>>>> backend_dev
           "column": 13
         }
       }
@@ -28,16 +49,25 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
+<<<<<<< HEAD
             "line": 6,
             "column": 22
           },
           "end": {
             "line": 6,
+=======
+            "line": 5,
+            "column": 22
+          },
+          "end": {
+            "line": 5,
+>>>>>>> backend_dev
             "column": 23
           }
         },
         "loc": {
           "start": {
+<<<<<<< HEAD
             "line": 7,
             "column": 4
           },
@@ -47,10 +77,22 @@
           }
         },
         "line": 7
+=======
+            "line": 6,
+            "column": 4
+          },
+          "end": {
+            "line": 34,
+            "column": 13
+          }
+        },
+        "line": 6
+>>>>>>> backend_dev
       }
     },
     "branchMap": {},
     "s": {
+<<<<<<< HEAD
       "0": 2,
       "1": 2
     },
@@ -122,5 +164,16 @@
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
     "hash": "51fdec9a12ff2e3c88b847175cbcca83767d0f51"
+=======
+      "0": 4,
+      "1": 9
+    },
+    "f": {
+      "0": 9
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "1ae99d27cc4b49d7170bcd8c90c5ec0d8d27640e"
+>>>>>>> backend_dev
   }
 }

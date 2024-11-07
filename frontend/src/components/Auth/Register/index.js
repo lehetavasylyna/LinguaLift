@@ -1,2 +1,2 @@
-export * from './Register'; //default excluded
+export * from './Register';
 export { default } from './Register';

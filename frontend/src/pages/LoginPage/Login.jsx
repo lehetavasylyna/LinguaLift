@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import styles from './Login.css';
+=======
+import styles from './Login.module.css';
+>>>>>>> backend_dev
 import React from 'react';
 import LoginComp from '../../components/Auth/Login';
 

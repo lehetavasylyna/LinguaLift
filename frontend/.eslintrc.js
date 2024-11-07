@@ -45,7 +45,7 @@ const config = {
     },
 
     plugins: ['simple-import-sort', 'react', 'react-hooks'],
-    ignorePatterns: ['node_modules'],
+    ignorePatterns: ['node_modules', 'coverage'],
     rules: {
         'unicorn/filename-case': [
             'error',

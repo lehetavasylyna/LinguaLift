@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import styles from './UserVocabulary.css';
+=======
+import styles from './UserVocabulary.module.css';
+>>>>>>> backend_dev
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 
