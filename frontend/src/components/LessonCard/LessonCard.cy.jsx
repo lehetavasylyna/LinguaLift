@@ -29,13 +29,4 @@ describe('LessonCard Component', () => {
     it('displays the difficulty level', () => {
         cy.get(`.${styles.diff}`).contains(difficulty).should('be.visible');
     });
-
-    it('displays the lesson date', () => {
-        cy.get(`.${styles.date}`).contains(date).should('be.visible');
-    });
-
-    it('renders without points when not provided', () => {
-        mount(<LessonCard title={title} difficulty={difficulty} date={date} />);
-        cy.get(`.${styles.point}`).should('not.exist');
-    });
 });

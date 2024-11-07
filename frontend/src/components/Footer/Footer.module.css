@@ -41,7 +41,6 @@
     text-decoration: underline;
 }
 
-/* Адаптивний дизайн для планшетів (максимальна ширина 768px) */
 @media (max-width: 768px) {
     .group {
         width: 80%;

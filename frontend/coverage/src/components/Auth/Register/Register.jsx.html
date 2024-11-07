@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.33% </span>
+                <span class="strong">5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/12</span>
+                <span class='fraction'>1/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.33% </span>
+                <span class="strong">5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/12</span>
+                <span class='fraction'>1/20</span>
             </div>
         
             
@@ -134,7 +134,21 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,6 +161,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,7 +200,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,11 +239,23 @@ import styles from './Register.module.css';
 import useAuth from '../../../hooks/useAuth';
 &nbsp;
 export const RegisterComp = <span class="fstat-no" title="function not covered" >({</span> isRegistration }) =&gt; {
-    const { isReg, setFirstName, setEmail, setPassword, toggleForm, handleRegister, handleLogin } = <span class="cstat-no" title="statement not covered" >useAuth();</span>
+    const { setFirstName, setEmail, password, setPassword, handleRegister } = <span class="cstat-no" title="statement not covered" >useAuth();</span>
     const [confirmPassword, setConfirmPassword] = <span class="cstat-no" title="statement not covered" >useState('');</span>
     const { register, loading } = <span class="cstat-no" title="statement not covered" >useAuth();</span>
     const [errorMessage, setErrorMessage] = <span class="cstat-no" title="statement not covered" >useState('');</span>
     const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
+&nbsp;
+    const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (confirmPassword !== password) {</span>
+<span class="cstat-no" title="statement not covered" >            setErrorMessage('Паролі не збігаються.');</span>
+<span class="cstat-no" title="statement not covered" >            setPassword('');</span>
+<span class="cstat-no" title="statement not covered" >            setConfirmPassword('');</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        setErrorMessage('');</span>
+<span class="cstat-no" title="statement not covered" >        await handleRegister();</span>
+    };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;div className={styles.mainContainer}&gt;
@@ -244,6 +284,7 @@ export const RegisterComp = <span class="fstat-no" title="function not covered" 
                 &lt;div className={styles.input}&gt;
                     &lt;input
                         type="password"
+                        value={password}
                         placeholder="Пароль"
                         onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setPassword(e.target.value)}</span>
                         required
@@ -252,6 +293,7 @@ export const RegisterComp = <span class="fstat-no" title="function not covered" 
                 &lt;div className={styles.input}&gt;
                     &lt;input
                         type="password"
+                        value={confirmPassword}
                         placeholder="Підтвердити пароль"
                         onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setConfirmPassword(e.target.value)}</span>
                         required
@@ -261,7 +303,7 @@ export const RegisterComp = <span class="fstat-no" title="function not covered" 
                     className={styles.registerBtn}
                     type="button"
                     onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >                        handleRegister();</span>
+<span class="cstat-no" title="statement not covered" >                        handleSubmit();</span>
                     }}
                     disabled={loading}
                 &gt;
@@ -283,7 +325,7 @@ export default RegisterComp;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-03T21:11:01.014Z
+                at 2024-11-07T08:15:53.267Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
