@@ -57,9 +57,6 @@ export const LoginComp = () => {
                 <a href="/register" className={styles.link}>
                     Реєстрація
                 </a>
-                <a href="/forgotPassword" className={styles.link}>
-                    Забули пароль?
-                </a>
             </div>
         </div>
     );

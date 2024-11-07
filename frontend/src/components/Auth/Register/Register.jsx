@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 import useAuth from '../../../hooks/useAuth';
 
@@ -8,7 +7,6 @@ export const RegisterComp = ({ isRegistration }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const { register, loading } = useAuth();
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
 
     const handleSubmit = async () => {
         if (confirmPassword !== password) {
@@ -32,6 +30,7 @@ export const RegisterComp = ({ isRegistration }) => {
             <form className={styles.userInput}>
                 <div className={styles.input}>
                     <input
+                        name="email"
                         type="email"
                         placeholder="Електронна пошта"
                         onChange={(e) => setEmail(e.target.value)}
@@ -40,6 +39,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="username"
                         type="text"
                         placeholder="Користувацьке ім’я"
                         onChange={(e) => setFirstName(e.target.value)}
@@ -48,6 +48,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="password"
                         type="password"
                         value={password}
                         placeholder="Пароль"
@@ -57,6 +58,7 @@ export const RegisterComp = ({ isRegistration }) => {
                 </div>
                 <div className={styles.input}>
                     <input
+                        name="passwordconfirm"
                         type="password"
                         value={confirmPassword}
                         placeholder="Підтвердити пароль"
